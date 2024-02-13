@@ -4,6 +4,7 @@ In the pharmaceutical sector, there exists a significant challenge of limited ac
 This obstacle hampers the ability of pharmacies, pharmaceutical enterprises, and individual consumers to efficiently locate and acquire necessary products.
 
 Solution 
+We are building a pharmacy management systems, a platform that will cater to pharmacies, pharmaceutical businesses, and individual consumers, offering them a range of features:
 
 * Medicine Search Functionality and Display: Users can search for medicines based on various parameters and view detailed product information.
 * Online Purchase and Checkout: Secure e-commerce system enabling the direct purchase of products from the website.
@@ -13,6 +14,7 @@ Solution
 * Informational Resources: Educational resources about medicines, treatments, and general healthcare.
 * Pharmacists and Pharmacy Staff: Tools for managing product listings, processing orders, and interacting with consumers.
 * Prescription validation
+* Inventory management
 
 Technologies Used
 
