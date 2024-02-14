@@ -1,9 +1,10 @@
-Problem Statement
+# Web doctor
+## Problem Statement
 
 In the pharmaceutical sector, there exists a significant challenge of limited access to comprehensive information regarding medications, treatments, and associated expenses. 
 This obstacle hampers the ability of pharmacies, pharmaceutical enterprises, and individual consumers to efficiently locate and acquire necessary products.
 
-Solution 
+## Solution 
 We are building a pharmacy management systems, a platform that will cater to pharmacies, pharmaceutical businesses, and individual consumers, offering them a range of features:
 
 * Medicine Search Functionality and Display: Users can search for medicines based on various parameters and view detailed product information.
