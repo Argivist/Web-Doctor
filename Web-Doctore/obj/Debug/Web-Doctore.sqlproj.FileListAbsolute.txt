@@ -1,0 +1,10 @@
+c:\xampp\htdocs\Web-Doctor\Web-Doctore\bin\Debug\Web-Doctore.dacpac
+c:\xampp\htdocs\Web-Doctor\Web-Doctore\bin\Debug\Web-Doctore.dll
+c:\xampp\htdocs\Web-Doctor\Web-Doctore\bin\Debug\Web-Doctore.pdb
+c:\xampp\htdocs\Web-Doctor\Web-Doctore\obj\Debug\Web-Doctore.sqlproj.AssemblyReference.cache
+c:\xampp\htdocs\Web-Doctor\Web-Doctore\obj\Debug\Model.xml
+c:\xampp\htdocs\Web-Doctor\Web-Doctore\obj\Debug\refactor.xml
+c:\xampp\htdocs\Web-Doctor\Web-Doctore\obj\Debug\postdeploy.sql
+c:\xampp\htdocs\Web-Doctor\Web-Doctore\obj\Debug\predeploy.sql
+c:\xampp\htdocs\Web-Doctor\Web-Doctore\obj\Debug\Web-Doctore.dll
+c:\xampp\htdocs\Web-Doctor\Web-Doctore\obj\Debug\Web-Doctore.pdb

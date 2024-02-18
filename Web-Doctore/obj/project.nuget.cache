@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "Uoyg6Zw+Tw2r78U0BCOYBqaNQJaimC26+/kW8uFlzNO/A3Xsg3DUt+ql9bEcq7Ohza3cixpaAm2J8XL5IHsfmQ==",
+  "success": true,
+  "projectFilePath": "c:\\xampp\\htdocs\\Web-Doctor\\Web-Doctore\\Web-Doctore.sqlproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hutto\\.nuget\\packages\\microsoft.netframework.referenceassemblies\\1.0.0\\microsoft.netframework.referenceassemblies.1.0.0.nupkg.sha512",
+    "C:\\Users\\hutto\\.nuget\\packages\\microsoft.netframework.referenceassemblies.net46\\1.0.0\\microsoft.netframework.referenceassemblies.net46.1.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
