@@ -43,12 +43,6 @@ session_start();
                             </ul>
                         </nav>
                     </div>
-                    <?php
-                    if(isset($_SESSION['id'])){
-                        echo "<div class='logout'><a href='../actions/logout.php'>Logout</a></div>";
-                    }else{
-                        echo "<div class='login'><a href='../login/login.php'>Sign in</a></div>";
-                    }?>
                     <div class="profile">
                         <a href="
                         <?php
@@ -63,7 +57,7 @@ session_start();
                             if(isset($_SESSION['id'])){
                                 echo "../img/profile.jpg";
                             }else{
-                                echo "../img/default_profile.jpg";
+                                echo "../img/profile.jpg";
                             }
                         ?>
                         " alt="Image" class="rounded-circle" style="width:50px; border-radius:50px;"></a>

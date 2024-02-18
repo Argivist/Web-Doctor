@@ -36,19 +36,13 @@ session_start();
                     <div class="main-nav d-lg-block">
                         <nav class="site-navigation text-right text-md-center" role="navigation">
                             <ul class="site-menu js-clone-nav d-lg-block">
-                                <li class="active"><a href="home.php">Home</a></li>
+                                <li class="home.php"><a href="pharmacy.html">Home</a></li>
                                 <li><a href="shop.html">Store</a></li>
                                 <li><a href="aboutus.html">About</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
-                    <?php
-                    if(isset($_SESSION['id'])){
-                        echo "<div class='logout'><a href='../actions/logout.php'>Logout</a></div>";
-                    }else{
-                        echo "<div class='login'><a href='../login/login.php'>Sign in</a></div>";
-                    }?>
                     <div class="profile">
                         <a href="
                         <?php
@@ -63,7 +57,7 @@ session_start();
                             if(isset($_SESSION['id'])){
                                 echo "../img/profile.jpg";
                             }else{
-                                echo "../img/default_profile.jpg";
+                                echo "../img/profile.jpg";
                             }
                         ?>
                         " alt="Image" class="rounded-circle" style="width:50px; border-radius:50px;"></a>

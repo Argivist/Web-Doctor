@@ -48,7 +48,7 @@ session_start();
                         echo "<div class='logout'><a href='../actions/logout.php'>Logout</a></div>";
                     }else{
                         echo "<div class='login'><a href='../login/login.php'>Sign in</a></div>";
-                    }?>
+                    }
                     <div class="profile">
                         <a href="
                         <?php
