@@ -20,6 +20,41 @@
 
   <link rel="stylesheet" href="css/style.css">
 
+  <style>
+    .prescription {
+      margin-top: 10px;
+    }
+
+      .white-popup {
+        background: #fff;
+        padding: 20px;
+        max-width: 400px;
+        margin: 0 auto;
+        text-align: center;
+        border-radius: 5px;
+      }
+    
+      .white-popup input[type="file"] {
+        margin-bottom: 10px;
+      }
+    
+      .white-popup button {
+        background-color: #04e2f6;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+   
+    
+  </style>
+
 </head>
 
 <body>
@@ -87,163 +122,143 @@
         </div>
       </div>
     </div>
-    
-        <div class="row">
-          <div class="col-sm-6 col-lg-4 text-center item mb-4">
-            <span class="tag">Sale</span>
-            <a href="shop-single.html"> <img src="images/product_01.png" alt="Image"></a>
-            <h3 class="text-dark"><a href="shop-single.html">Bioderma</a></h3>
-            <p class="price"><del>95.00</del> &mdash; 55.00 cedis</p>
-          </div>
-          <div class="col-sm-6 col-lg-4 text-center item mb-4">
-            <a href="shop-single.html"> <img src="images/product_02.png" alt="Image"></a>
-            <h3 class="text-dark"><a href="shop-single.html">Chanca Piedra</a></h3>
-            <p class="price">70.00 cedis</p>
-          </div>
-          <div class="col-sm-6 col-lg-4 text-center item mb-4">
-            <a href="shop-single.html"> <img src="images/product_03.png" alt="Image"></a>
-            <h3 class="text-dark"><a href="shop-single.html">Umcka Cold Care</a></h3>
-            <p class="price">120.00 cedis</p>
-          </div>
-    
-          <div class="col-sm-6 col-lg-4 text-center item mb-4">
-    
-            <a href="shop-single.html"> <img src="images/product_04.png" alt="Image"></a>
-            <h3 class="text-dark"><a href="shop-single.html">Cetyl Pure</a></h3>
-            <p class="price"><del>45.00</del> &mdash; 20.00 cedis</p>
-          </div>
-          <div class="col-sm-6 col-lg-4 text-center item mb-4">
-            <a href="shop-single.html"> <img src="images/product_05.png" alt="Image"></a>
-            <h3 class="text-dark"><a href="shop-single.html">CLA Core</a></h3>
-            <p class="price">38.00 cedis</p>
-          </div>
-          <div class="col-sm-6 col-lg-4 text-center item mb-4">
-            <span class="tag">Sale</span>
-            <a href="shop-single.html"> <img src="images/product_06.png" alt="Image"></a>
-            <h3 class="text-dark"><a href="shop-single.html">Poo Pourri</a></h3>
-            <p class="price"><del>89 cedis</del> &mdash; 105.00 cedis</p>
-          </div>
 
-          <div class="col-sm-6 col-lg-4 text-center item mb-4">
-            <span class="tag">Sale</span>
-            <a href="shop-single.html"> <img src="images/product_01.png" alt="Image"></a>
-            <h3 class="text-dark"><a href="shop-single.html">Bioderma</a></h3>
-            <p class="price"><del>95.00 cedis</del> &mdash; 55.00 cedis</p>
-          </div>
-          <div class="col-sm-6 col-lg-4 text-center item mb-4">
-            <a href="shop-single.html"> <img src="images/product_02.png" alt="Image"></a>
-            <h3 class="text-dark"><a href="shop-single.html">Chanca Piedra</a></h3>
-            <p class="price">70.00 cedis</p>
-          </div>
-          <div class="col-sm-6 col-lg-4 text-center item mb-4">
-            <a href="shop-single.html"> <img ˀsrc="images/product_03.png" alt="Image"></a>
-            <h3 class="text-dark"><a href="shop-single.html">Umcka Cold Care</a></h3>
-            <p class="price">120.00 cedis</p>
-          </div>
-          
-          <div class="col-sm-6 col-lg-4 text-center item mb-4">
-          
-            <a href="shop-single.html"> <img src="images/product_04.png" alt="Image"></a>
-            <h3 class="text-dark"><a href="shop-single.html">Cetyl Pure</a></h3>
-            <p class="price"><del>45.00 cedis</del> &mdash; 45.00 cedis</p>
-          </div>
-          <div class="col-sm-6 col-lg-4 text-center item mb-4">
-            <a href="shop-single.html"> <img src="images/product_05.png" alt="Image"></a>
-            <h3 class="text-dark"><a href="shop-single.html">CLA Core</a></h3>
-            <p class="price">57.00 cedis</p>
-          </div>
-          <div class="col-sm-6 col-lg-4 text-center item mb-4">
-            <span class="tag">Sale</span>
-            <a href="shop-single.html"> <img src="images/product_06.png" alt="Image"></a>
-            <h3 class="text-dark"><a href="shop-single.html">Poo Pourri</a></h3>
-            <p class="price"><del>200.00 cedis</del> &mdash; 99.00 cedis</p>
-          </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-lg-4 text-center item mb-4">
+          <a href="shop-single.html"> <img src="images/product_01.png" alt="Image"></a>
+          <h3 class="text-dark"><a href="shop-single.html">Bioderma</a></h3>
+          <p class="price"><del>95.00</del> &mdash; 55.00 cedis</p>
+          <p class="inventory">Inventory: 10</p>
+          <button class="btn btn-primary buy-button" data-drug="Bioderma" data-prescription-required="true">Buy Bioderma</button>
+          <input type="file" class="prescription d-none">
         </div>
-        <div class="row mt-5">
-          <div class="col-md-12 text-center">
-            <div class="site-block-27">
-              <ul>
-                <li><a href="#">&lt;</a></li>
-                <li class="active"><span>1</span></li>
-                <li><a href="#">2</a></li>
-                <li><a href="#">3</a></li>
-                <li><a href="#">4</a></li>
-                <li><a href="#">5</a></li>
-                <li><a href="#">&gt;</a></li>
-              </ul>
-            </div>
-          </div>
+        <div class="col-sm-6 col-lg-4 text-center item mb-4">
+          <a href="shop-single.html"> <img src="images/product_02.png" alt="Image"></a>
+          <h3 class="text-dark"><a href="shop-single.html">Chanca Piedra</a></h3>
+          <p class="price">70.00 cedis</p>
+          <p class="inventory">Inventory: 5</p>
+          <button class="btn btn-primary buy-button" data-drug="Chanca Piedra" data-prescription-required="false">Buy Chanca Piedra</button>
         </div>
+        <div class="col-sm-6 col-lg-4 text-center item mb-4">
+          <a href="shop-single.html"> <img src="images/product_03.png" alt="Image"></a>
+          <h3 class="text-dark"><a href="shop-single.html">Umcka Cold Care</a></h3>
+          <p class="price">120.00 cedis</p>
+          <p class="inventory">Inventory: 3</p>
+          <button class="btn btn-primary buy-button" data-drug="Umcka Cold Care" data-prescription-required="true">Buy Umcka Cold Care</button>
+          <input type="file" class="prescription d-none">
+        </div>
+        <div class="col-sm-6 col-lg-4 text-center item mb-4">
+          <a href="shop-single.html"> <img src="images/product_04.png" alt="Image"></a>
+          <h3 class="text-dark"><a href="shop-single.html">cety1Pure</a></h3>
+          <p class="price">130.00 cedis</p>
+          <p class="inventory">Inventory: 6</p>
+          <button class="btn btn-primary buy-button" data-drug="cety1Pure" data-prescription-required="true">Buy cety1Pure</button>
+          <input type="file" class="prescription d-none">
+        </div>
+        <div class="col-sm-6 col-lg-4 text-center item mb-4">
+          <a href="shop-single.html"> <img src="images/product_05.png" alt="Image"></a>
+          <h3 class="text-dark"><a href="shop-single.html">ClaCore</a></h3>
+          <p class="price">140.00 cedis</p>
+          <p class="inventory">Inventory: 120</p>
+          <button class="btn btn-primary buy-button" data-drug="ClaCore" data-prescription-required="false">Buy ClaCore</button>
+        </div>
+        <div class="col-sm-6 col-lg-4 text-center item mb-4">
+          <a href="shop-single.html"> <img src="images/product_06.png" alt="Image"></a>
+          <h3 class="text-dark"><a href="shop-single.html">Poo-Pourrie</a></h3>
+          <p class="price">100.00 cedis</p>
+          <p class="inventory">Inventory: 27</p>
+          <button class="btn btn-primary buy-button" data-drug="Poo-Pourrie" data-prescription-required="false">Buy Poo-Pourrie</button>
+        </div>
+
+        <!-- Add more drug items here -->
       </div>
     </div>
 
-    
-    <div class="site-section bg-secondary bg-image" style="background-image: url('images/bg_2.jpg');">
-      <div class="container">
-        <div class="row align-items-stretch">
-          <div class="col-lg-6 mb-5 mb-lg-0">
-            <a href="#" class="banner-1 h-100 d-flex" style="background-image: url('images/bg_1.jpg');">
-              <div class="banner-1-inner align-self-center">
-                <h2>The Pharmacy Products</h2>
-                <p>Find your products here.
-                </p>
-              </div>
-            </a>
-          </div>
-          <div class="col-lg-6 mb-5 mb-lg-0">
-            <a href="#" class="banner-1 h-100 d-flex" style="background-image: url('images/bg_2.jpg');">
-              <div class="banner-1-inner ml-auto  align-self-center">
-                <h2>Rated by Experts</h2>
-                <p>You can trust us, we got your back.
-                </p>
-              </div>
-            </a>
-          </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-md-12 text-center">
+      <div class="site-block-27">
+        <ul>
+          <li><a href="#">&lt;</a></li>
+          <li class="active"><span>1</span></li>
+          <li><a href="#">2</a></li>
+          <li><a href="#">3</a></li>
+          <li><a href="#">4</a></li>
+          <li><a href="#">5</a></li>
+          <li><a href="#">&gt;</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  <div class="site-section bg-secondary bg-image" style="background-image: url('images/bg_2.jpg');">
+    <div class="container">
+      <div class="row align-items-stretch">
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <a href="#" class="banner-1 h-100 d-flex" style="background-image: url('images/bg_1.jpg');">
+            <div class="banner-1-inner align-self-center">
+              <h2>The Pharmacy Products</h2>
+              <p>Find your products here.
+              </p>
+            </div>
+          </a>
+        </div>
+        <div class="col-lg-6 mb-5 mb-lg-0">
+          <a href="#" class="banner-1 h-100 d-flex" style="background-image: url('images/bg_2.jpg');">
+            <div class="banner-1-inner ml-auto  align-self-center">
+              <h2>Rated by Experts</h2>
+              <p>You can trust us, we got your back.
+              </p>
+            </div>
+          </a>
         </div>
       </div>
     </div>
+  </div>
 
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
 
-    <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-
-            <div class="block-7">
-              <h3 class="footer-heading mb-4">About Us</h3>
-              <p>We aim to solve the problem of access to information and streamline the pharmaceutical supply chain by providing a 
-                comprehensive online platform. This platform will cater to pharmacies, pharmaceutical businesses, and individual consumers, 
-                offering them a range of features to meet their needs</p>
-            </div>
-
+          <div class="block-7">
+            <h3 class="footer-heading mb-4">About Us</h3>
+            <p>We aim to solve the problem of access to information and streamline the pharmaceutical supply chain by providing a 
+              comprehensive online platform. This platform will cater to pharmacies, pharmaceutical businesses, and individual consumers, 
+              offering them a range of features to meet their needs</p>
           </div>
-          <div class="col-lg-3 mx-auto mb-5 mb-lg-0">
-            <h3 class="footer-heading mb-4">Quick Links</h3>
+
+        </div>
+        <div class="col-lg-3 mx-auto mb-5 mb-lg-0">
+          <h3 class="footer-heading mb-4">Quick Links</h3>
+          <ul class="list-unstyled">
+            <li><a href="#">Supplements</a></li>
+            <li><a href="#">Vitamins</a></li>
+            <li><a href="#">Diet &amp; Nutrition</a></li>
+            <li><a href="#">Tea &amp; Coffee</a></li>
+          </ul>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="block-5 mb-5">
+            <h3 class="footer-heading mb-4">Contact Info</h3>
             <ul class="list-unstyled">
-              <li><a href="#">Supplements</a></li>
-              <li><a href="#">Vitamins</a></li>
-              <li><a href="#">Diet &amp; Nutrition</a></li>
-              <li><a href="#">Tea &amp; Coffee</a></li>
+              <li class="address">1 University Avenue Berekuso</li>
+              <li class="phone"><a href="tel://23923929210">+233 54992328</a></li>
+              <li class="email">priscile.nzonbi@ashesi.edu.gh</li>
             </ul>
           </div>
 
-          <div class="col-md-6 col-lg-3">
-            <div class="block-5 mb-5">
-              <h3 class="footer-heading mb-4">Contact Info</h3>
-              <ul class="list-unstyled">
-                <li class="address">1 University Avenue Berekuso</li>
-                <li class="phone"><a href="tel://23923929210">+233 54992328</a></li>
-                <li class="email">priscile.nzonbi@ashesi.edu.gh</li>
-              </ul>
-            </div>
 
-
-          </div>
         </div>
-
       </div>
-    </footer>
-  </div>
+
+    </div>
+  </footer>
 
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
@@ -252,8 +267,47 @@
   <script src="js/owl.carousel.min.js"></script>
   <script src="js/jquery.magnific-popup.min.js"></script>
   <script src="js/aos.js"></script>
+  <script>src="js/shop.js"</script>
 
   <script src="js/main.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      $('.buy-button').click(function () {
+        var drugName = $(this).attr('data-drug');
+        var prescriptionRequired = $(this).attr('data-prescription-required') === 'true';
+  
+        if (prescriptionRequired) {
+          // Display popup for prescription upload
+          var popupContent = '<div>Prescription is required for ' + drugName + '. Please upload a prescription.</div>';
+          popupContent += '<input type="file" class="prescription">';
+          popupContent += '<button class="btn btn-primary upload-prescription">Upload Prescription</button>';
+          $.magnificPopup.open({
+            items: {
+              src: '<div class="white-popup">' + popupContent + '</div>',
+              type: 'inline'
+            }
+          });
+  
+          // Process the purchase after prescription validation
+          $('.upload-prescription').click(function () {
+            var uploadedPrescription = $('.prescription').prop('files')[0];
+            if (uploadedPrescription) {
+              alert('Prescription uploaded for ' + drugName + '. It will take some time while we validate the prescription.');
+              // Close the popup after processing
+              $.magnificPopup.close();
+            } else {
+              alert('Please upload a prescription.');
+            }
+          });
+        } else {
+          // Process the purchase
+          alert('Processing purchase of ' + drugName + '...');
+        }
+      });
+    });
+  </script>
+  
 
 </body>
 
