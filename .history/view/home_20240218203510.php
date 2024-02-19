@@ -37,19 +37,20 @@ session_start();
                         <nav class="site-navigation text-right text-md-center" role="navigation">
                             <ul class="site-menu js-clone-nav d-lg-block">
                                 <li class="active"><a href="home.php">Home</a></li>
-                                <li><a href="shop.php">Store</a></li>
+                                <li><a href="shop.html">Store</a></li>
                                 <li><a href="aboutus.html">About</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                         </nav>
                     </div>
                     <?php
+                    ?>
+                    <div class="profile">
                     if(isset($_SESSION['id'])){
                         echo "<div class='logout'><a href='../actions/logout.php'>Logout</a></div>";
                     }else{
                         echo "<div class='login'><a href='../login/login.php'>Sign in</a></div>";
-                    }?>
-                    <div class="profile">
+                    }
                         <a href="
                         <?php
                         if(isset($_SESSION['id'])){
