@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Pharmacy</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Bootstrap CSS -->
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f8f9fa;
+      color: #333;
+    }
+
+    .item {
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .item img {
+      max-width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .price {
+      color: #666;
+    }
+
+    .quantity {
+      font-weight: bold;
+    }
+
+    .prescription {
+      margin-top: 10px;
+    }
+
+    .container {
+      margin-top: 20px;
+    }
+
+    /* Button styles */
+    .btn-primary {
+      background-color: #007bff;
+      border-color: #007bff;
+    }
+
+    .btn-primary:hover {
+      background-color: #0069d9;
+      border-color: #0062cc;
+    }
+
+    .btn-primary:focus,
+    .btn-primary.focus {
+      box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.5);
+    }
+
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-lg-4 text-center item mb-4">
+        <button class="btn btn-primary buy-button" data-drug="Bioderma">Buy Bioderma</button>
+        <img src="images/product_01.png" alt="Bioderma">
+        <h3 class="text-dark">Bioderma</h3>
+        <p class="price"><del>95.00</del> &mdash; 55.00 cedis</p>
+        <p>Remaining: <span class="quantity" data-drug="Bioderma">10</span></p>
+        <input type="file" class="form-control prescription">
+      </div>
+      <div class="col-sm-6 col-lg-4 text-center item mb-4">
+        <button class="btn btn-primary buy-button" data-drug="Chanca Piedra">Buy Chanca Piedra</button>
+        <img src="images/product_02.png" alt="Chanca Piedra">
+        <h3 class="text-dark">Chanca Piedra</h3>
+        <p class="price">70.00 cedis</p>
+        <p>Remaining: <span class="quantity" data-drug="Chanca Piedra">15</span></p>
+        <input type="file" class="form-control prescription">
+      </div>
+      <!-- Add more drug items here -->
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <!-- jQuery JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+  <!-- Popper.js -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script>
+    const drugQuantities = {
+      'Bioderma': 10,
+      'Chanca Piedra': 15
+      // Add more drug quantities here
+    };
+
+    function buyDrug(drugName, prescriptionFile) {
+      if (!prescriptionFile) {
+        alert('Please upload a prescription file.');
+        return;
+      }
+
+      // Here, you can add additional validation logic for the prescription file if needed
+
+      if (drugQuantities[drugName] > 0) {
+        drugQuantities[drugName]--;
+        updateQuantityDisplay(drugName);
+        alert('You bought ' + drugName);
+      } else {
+        alert('Sorry, ' + drugName + ' is out of stock.');
+      }
+    }
+
+    function updateQuantityDisplay(drugName) {
+      const quantityDisplay = document.querySelector('.quantity[data-drug="' + drugName + '"]');
+      if (quantityDisplay) {
+        quantityDisplay.textContent = drugQuantities[drugName];
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const buyButtons = document.querySelectorAll('.buy-button');
+      buyButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          const drugName = button.dataset.drug;
+          const prescriptionFile = button.parentElement.querySelector('.prescription').files[0];
+          buyDrug(drugName, prescriptionFile);
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>
