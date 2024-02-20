@@ -16,8 +16,7 @@ $pass=$_POST['passwd'];
         
             
         if(password_verify($pass,$row['passwd'])){
-            
-            $_SESSION['id']=$row['p_id'];
+            $_SESSION['id']=$row['CUSTOMID'];
             $_SESSION['username']=$row['user'];
             $_SESSION['fname']=$row['fname'];
             $_SESSION['lname']=$row['lname'];

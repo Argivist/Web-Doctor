@@ -82,25 +82,25 @@ session_start();
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
-                        <div class="site-block-cover-content text-center">
+                
                             <!--Profile page-->
                             <h1 class="mb-0">Profile</h1>
                             <div class="row justify-content-center">
                                 <div class="row">
                                     <div class="col">
-                                        <p>Username</p><?php
+                                        <p>Username</p><p><?php
                                                         echo $_SESSION['username'];
-                                                        ?>
+                                                        ?></p>
                                     </div>
                                     <div class="col">
-                                        <p>First Name</p><?php
+                                        <p>First Name</p><p><?php
                                                             echo $_SESSION['fname'];
-                                                            ?>
+                                                            ?></p>
                                     </div>
                                     <div class="col">
-                                        <p>Last Name</p><?php
+                                        <p>Last Name</p><p><?php
                                                             echo $_SESSION['lname'];
-                                                            ?>
+                                                            ?></p>
                                     </div>
                                 </div>
                                 
@@ -128,7 +128,7 @@ session_start();
                                         <a href="edit_profile.php" class="btn btn-primary px-5 py-3">Edit Profile</a>
                                     </div>
                             </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>

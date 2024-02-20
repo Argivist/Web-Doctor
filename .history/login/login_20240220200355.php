@@ -32,7 +32,7 @@
                             <h1>Login</h1>
                             <form action="../actions/login_user.php" method="POST" class="was-validated">
                                 <div class="mb-3 mt-3 ">
-                                    <input type="text" class="form-control" id="email" placeholder="Enter username" name="email" required>
+                                    <input type="text" class="form-control" id="email" placeholder="Enter username" name="uname" required>
                                 </div>
                                 <div class="mb-3">
                                     <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="passwd" required>

@@ -15,9 +15,16 @@ $pass=$_POST['passwd'];
 
         
             
-        if(password_verify($pass,$row['passwd'])){
-            
-            $_SESSION['id']=$row['p_id'];
+        if(password_verify($pass,$row['PASSWORD'])){
+            // `p_id` int(11) NOT NULL,
+            // `user_id` bigint(20) NOT NULL,
+            // `fname` varchar(50) NOT NULL,
+            // `lname` varchar(50) NOT NULL,
+            // `email` varchar(100) NOT NULL,
+            // `tel` bigint(10) NOT NULL,
+            // `address` varchar(100) NOT NULL,
+            // `passwd` varchar(20) NOT NULL
+            $_SESSION['id']=$row['CUSTOMID'];
             $_SESSION['username']=$row['user'];
             $_SESSION['fname']=$row['fname'];
             $_SESSION['lname']=$row['lname'];

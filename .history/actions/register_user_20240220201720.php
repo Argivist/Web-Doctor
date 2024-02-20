@@ -33,7 +33,7 @@ if (empty($user) || empty($fname) || empty($lname) || empty($email) || empty($ph
         $query = "INSERT INTO people (user_id,fname,lname,email,tel,address,passwd) VALUES(?,?,?,?,?,?,?)";
         $stmt->prepare($query);
         $user_id=0;
-        $stmt->bind_param("isssiss",$user_id, $fname, $lname, $email, $phone, $address, $password);
+        $stmt->bind_param("isssiss", "0", $fname, $lname, $email, $phone, $address, $password);
         $stmt->execute();
 if($stmt->affected_rows>0){
     header("Location: ../login/login.php?error=Registration successful");

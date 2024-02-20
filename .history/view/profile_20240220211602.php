@@ -88,19 +88,19 @@ session_start();
                             <div class="row justify-content-center">
                                 <div class="row">
                                     <div class="col">
-                                        <p>Username</p><?php
+                                        <p>Username</p><p><?php
                                                         echo $_SESSION['username'];
-                                                        ?>
+                                                        ?></p>
                                     </div>
                                     <div class="col">
-                                        <p>First Name</p><?php
+                                        <p>First Name</p><p><?php
                                                             echo $_SESSION['fname'];
-                                                            ?>
+                                                            ?></p>
                                     </div>
                                     <div class="col">
-                                        <p>Last Name</p><?php
+                                        <p>Last Name</p><p><?php
                                                             echo $_SESSION['lname'];
-                                                            ?>
+                                                            ?></p>
                                     </div>
                                 </div>
                                 
