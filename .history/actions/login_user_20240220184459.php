@@ -18,13 +18,13 @@ $pass=$_POST['passwd'];
         if(password_verify($pass,$row['PASSWORD'])){
         
             $_SESSION['id']=$row['CUSTOMID'];
-            $_SESSION['username']=$row['user'];
+            $_SESSION['username']=$row['customname'];
             $_SESSION['fname']=$row['fname'];
             $_SESSION['lname']=$row['lname'];
             $_SESSION['email']=$row['email'];
             $_SESSION['phone']=$row['phone'];
             $_SESSION['address']=$row['address'];
-            
+            $_SESSION['role']=$row['role'];
             header("Location: ../view/home.php");
         }else{
             header("Location: ../login/login.php?error=Invalid password");
