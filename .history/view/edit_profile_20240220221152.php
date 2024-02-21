@@ -1,9 +1,9 @@
 <?php
 include "../settings/connection.php";
 session_start();
-// if (!isset($_SESSION['id'])) {
-//     header("Location: ../login/login.php");
-// }
+if (!isset($_SESSION['id'])) {
+    header("Location: ../login/login.php");
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -80,59 +80,86 @@ session_start();
         <!--Image By: Photo by Alex Green: https://www.pexels.com/photo/pile-of-white-spilled-pills-5699514/-->
         <div class="site-blocks-cover" style="background-image: url('../img/background/pharmacy_1.jpg');">
             <div class="container">
-                <div class="row">
-                    <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
-                        <div class="site-block-cover-content text-center text-dark" style="background: rgba(138,199,197,0.5); backdrop-filter:blur(10px);border: 1px #8ac7c5 solid; border-radius:5px; padding:4px;">
-                            <!--Profile page-->
-                            <h1 class="mb-0">Profile</h1>
-                            <div class="justify-content-center ">
-                                <div class="row">
-                                    <div class="col">
-                                        <p>Username</p><?php
-                                                        echo $_SESSION['username'];
-                                                        ?>
-                                    </div>
-                                    <div class="col">
-                                        <p>First Name</p><?php
-                                                            echo $_SESSION['fname'];
-                                                            ?>
-                                    </div>
-                                    <div class="col">
-                                        <p>Last Name</p><?php
-                                                        echo $_SESSION['lname'];
-                                                        ?>
-                                    </div>
-                                </div>
+                <form action="../actions/edit_profile.php" method="POST" class="was-validated">
+                    <div class="row">
+                        <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
+                            <div class="site-block-cover-content text-center">
+                                <!--Profile page-->
+                                <h1 class="mb-0">Profile</h1>
+                                <!--error-->
+                                <div id="error"></div>
 
                                 <div class="row">
                                     <div class="col">
-                                        <p>Email</p><?php
-                                                    echo $_SESSION['email'];
-                                                    ?>
+                                        <label for="uname">Username</label>
+                                        <?php echo "<input type='text' id='uname' name='uname' class='form-control' value='" . $_SESSION['username'] . "' >" ?>
+                                    </div>
+                                    <div class="col">
+                                        <label for="fname">First Name</label>
+                                        <?php echo "<input type='text' id='fname' name='fname' class='form-control' value='" . $_SESSION['fname'] . "' >" ?>
+                                    </div>
+                                    <div class="col">
+                                        <label for="lname">Last Name</label>
+                                        <?php echo "<input type='text' id='lname' name='lname' class='form-control' value='" . $_SESSION['lname'] . "' >" ?>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col">
+                                        <label for="email">Email</label>
+                                        <?php echo "<input type='text' id='email' name='email' class='form-control' value='" . $_SESSION['email'] . "' >" ?>
                                     </div>
 
                                 </div>
                                 <div class="row">
                                     <div class="col">
-                                        <p>Phone</p><?php
-                                                    echo $_SESSION['phone'];
-                                                    ?>
+                                        <label for="phone">Phone</label>
+                                        <?php echo "<input type='text' id='phone' name='phone' class='form-control' value='" . $_SESSION['phone'] . "' >" ?>
                                     </div>
                                     <div class="col">
-                                        <p>Address</p><?php
-                                                        echo $_SESSION['address'];
-                                                        ?>
+                                        <label for="address">Address</label>
+                                        <?php echo "<input type='text' id='address' name='address' class='form-control' value='" . $_SESSION['address'] . "' >" ?>
                                     </div>
+
                                 </div>
-                                <div class="row">
+                                <div. class="row">
                                     <div class="col">
-                                        <a href="edit_profile.php" class="btn btn-primary px-5 py-3">Edit Profile</a>
+                                        <label for="pwd">Password</label>
+                                        <input type="password" id="pwd" name="pwd" class="form-control" required>
                                     </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <label for="pwd">Re-enter Password</label>
+                                    <input type="password" id="pwd2" class="form-control" required>
+                                </div>
+                            </div>
+                            <!--margin-->
+                            <div class="mb-3" style="margin-bottom:30px;"></div>
+                            <div class="row" padding-left="10px">
+                                <div class="col">
+                                    <input type="submit" id="save_profile" class="btn btn-primary px-5 py-3" value="Save Profile">
+                                </div>
+
+                                <div class="col">
+                                    <a href="profile.php" class="btn btn-primary px-5py-3">Cancel</a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                </form>
+            </div>
 </body>
+<script>
+    var password = document.getElementById("pwd"),
+        confirm_password = document.getElementById("pwd2");
+    document.getElementById("save_profile").addEventListener("click", () => {
+        if (password.value != confirm_password.value) {
+            document.getElementById("error").innerHTML = "<div class='alert alert-danger' role='alert'>Passwords do not match</div>";
+            event.preventDefault();
+        } else {
+            confirm_password.setCustomValidity('');
+        }
+    });
+</script>
 
 </html>

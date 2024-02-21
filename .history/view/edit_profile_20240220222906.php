@@ -121,21 +121,15 @@ if (!isset($_SESSION['id'])) {
                                             <label for="address">Address</label>
                                             <?php echo "<input type='text' id='address' name='address' class='form-control' value='" . $_SESSION['address'] . "' >" ?>
                                         </div>
+
                                     </div>
-                                    <div class="row">
-                                        <div class="col">
-                                            <label for="pwd">Previous Password</label>
-                                            <input type="password" id="opwd" name="opwd" class="form-control" required>
-                                        </div>
-                                    </div>
-                                    <div class="row">
+                                    <div. class="row">
                                         <div class="col">
                                             <label for="pwd">Password</label>
                                             <input type="password" id="pwd" name="pwd" class="form-control" required>
                                         </div>
-                                    </div>
-                                
-
+                    </div>
+                                </div>
 
                                 <div class="row">
                                     <div class="col">

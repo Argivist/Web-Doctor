@@ -82,7 +82,7 @@ session_start();
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
-                        <div class="site-block-cover-content text-center text-dark" style="background: rgba(138,199,197,0.5); backdrop-filter:blur(10px);border: 1px #8ac7c5 solid; border-radius:5px; padding:4px;">
+                        <div class="site-block-cover-content text-center " style="background:#cddad5;border-radius:5px; padding:4px;">
                             <!--Profile page-->
                             <h1 class="mb-0">Profile</h1>
                             <div class="justify-content-center ">

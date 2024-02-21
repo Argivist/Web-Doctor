@@ -82,10 +82,10 @@ session_start();
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
-                        <div class="site-block-cover-content text-center text-dark" style="background: rgba(138,199,197,0.5); backdrop-filter:blur(10px);border: 1px #8ac7c5 solid; border-radius:5px; padding:4px;">
+                        <div class="site-block-cover-content text-center">
                             <!--Profile page-->
                             <h1 class="mb-0">Profile</h1>
-                            <div class="justify-content-center ">
+                            
                                 <div class="row">
                                     <div class="col">
                                         <p>Username</p><?php
@@ -99,21 +99,21 @@ session_start();
                                     </div>
                                     <div class="col">
                                         <p>Last Name</p><?php
-                                                        echo $_SESSION['lname'];
-                                                        ?>
+                                                            echo $_SESSION['lname'];
+                                                            ?>
                                     </div>
                                 </div>
-
+                                
                                 <div class="row">
                                     <div class="col">
                                         <p>Email</p><?php
                                                     echo $_SESSION['email'];
                                                     ?>
                                     </div>
-
+                                    
                                 </div>
                                 <div class="row">
-                                    <div class="col">
+                                <div class="col">
                                         <p>Phone</p><?php
                                                     echo $_SESSION['phone'];
                                                     ?>
@@ -122,17 +122,17 @@ session_start();
                                         <p>Address</p><?php
                                                         echo $_SESSION['address'];
                                                         ?>
-                                    </div>
+                                    </div>                                    
                                 </div>
                                 <div class="row">
                                     <div class="col">
                                         <a href="edit_profile.php" class="btn btn-primary px-5 py-3">Edit Profile</a>
                                     </div>
-                                </div>
-                            </div>
+                            
                         </div>
                     </div>
                 </div>
+            </div>
 </body>
 
 </html>

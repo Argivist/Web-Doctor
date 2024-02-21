@@ -125,7 +125,7 @@ if (!isset($_SESSION['id'])) {
                                     <div class="row">
                                         <div class="col">
                                             <label for="pwd">Previous Password</label>
-                                            <input type="password" id="opwd" name="opwd" class="form-control" required>
+                                            <input type="password" id="pwd" name="opwd" class="form-control" required>
                                         </div>
                                     </div>
                                     <div class="row">
