@@ -78,7 +78,7 @@ if (!isset($_SESSION['id'])) {
 
         <!--Main Content-->
         <!--Image By: Photo by Alex Green: https://www.pexels.com/photo/pile-of-white-spilled-pills-5699514/-->
-        <div class="site-blocks-cover" ">
+        <div class="site-blocks-cover" style="background-image: url('../img/background/pharmacy_1.jpg');">
         <!-- path -->
 <div class="bg-light py-3">
       <div class="container">

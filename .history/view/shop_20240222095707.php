@@ -1,9 +1,6 @@
 <?php
 require "../settings/connection.php";
 session_start();
-if(!isset($_SESSION['id'])){
-  header("Location: ../login/login.php");
-}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -133,8 +130,8 @@ if(!isset($_SESSION['id'])){
                     <div class="main-nav d-lg-block">
                         <nav class="site-navigation text-right text-md-center" role="navigation">
                             <ul class="site-menu js-clone-nav d-lg-block">
-                                <li class=""><a href="home.php">Home</a></li>
-                                <li class="active"><a href="shop.php">Store</a></li>
+                                <li class="active"><a href="home.php">Home</a></li>
+                                <li><a href="shop.php">Store</a></li>
                                 <li><a href="aboutus.html">About</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
@@ -171,7 +168,7 @@ if(!isset($_SESSION['id'])){
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="home.php">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Store</strong></div>
+          <div class="col-md-12 mb-0"><a href="pharmacy.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Store</strong></div>
         </div>
       </div>
     </div>

@@ -75,19 +75,18 @@ if (!isset($_SESSION['id'])) {
                 </div>
             </div>
         </div>
-
-        <!--Main Content-->
-        <!--Image By: Photo by Alex Green: https://www.pexels.com/photo/pile-of-white-spilled-pills-5699514/-->
-        <div class="site-blocks-cover" ">
-        <!-- path -->
+<!-- path -->
 <div class="bg-light py-3">
       <div class="container">
         <div class="row">
           <div class="col-md-12 mb-0"><a href="home.php">Home</a> <span class="mx-2 mb-0">/</span><div class="col-md-12 mb-0"><a href="profile.php">Profile</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Edit Profile</strong></div>
         </div>
       </div>
-    </div>    
-        <div class="container">
+    </div>
+        <!--Main Content-->
+        <!--Image By: Photo by Alex Green: https://www.pexels.com/photo/pile-of-white-spilled-pills-5699514/-->
+        <div class="site-blocks-cover" style="background-image: url('../img/background/pharmacy_1.jpg');">
+            <div class="container">
                 <form action="../actions/edit_profile.php" method="POST" class="was-validated">
                     <div class="row">
                         <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
