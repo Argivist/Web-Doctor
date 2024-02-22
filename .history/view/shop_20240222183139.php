@@ -1,7 +1,7 @@
 <?php
 require "../settings/connection.php";
 session_start();
-if (!isset($_SESSION['id'])) {
+if(!isset($_SESSION['id'])){
   header("Location: ../login/login.php");
 }
 ?>
@@ -32,32 +32,34 @@ if (!isset($_SESSION['id'])) {
       margin-top: 10px;
     }
 
-    .white-popup {
-      background: #fff;
-      padding: 20px;
-      max-width: 400px;
-      margin: 0 auto;
-      text-align: center;
-      border-radius: 5px;
-    }
-
-    .white-popup input[type="file"] {
-      margin-bottom: 10px;
-    }
-
-    .white-popup button {
-      background-color: #04e2f6;
-      border: none;
-      color: white;
-      padding: 10px 20px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
-      border-radius: 5px;
-    }
+      .white-popup {
+        background: #fff;
+        padding: 20px;
+        max-width: 400px;
+        margin: 0 auto;
+        text-align: center;
+        border-radius: 5px;
+      }
+    
+      .white-popup input[type="file"] {
+        margin-bottom: 10px;
+      }
+    
+      .white-popup button {
+        background-color: #04e2f6;
+        border: none;
+        color: white;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 5px;
+      }
+   
+    
   </style>
 
 </head>
@@ -119,76 +121,68 @@ if (!isset($_SESSION['id'])) {
         </div>
       </div>
     </div> -->
-    <!--Navigation Bar-->
-    <div class="site-navbar bg-primary py-2">
-      <div class="container">
-        <div class="d-flex align-items-center justify-content-between">
-          <div class="logo">
-            <div class="site-logo">
-              <a href="home.php" class="js-logo-clone"><img src="../img/logo/logo.png" style="width:50px; border-radius:50px;" alt="logo" /></a>
-            </div>
-          </div>
-          <div class="main-nav d-lg-block">
-            <nav class="site-navigation text-right text-md-center" role="navigation">
-              <ul class="site-menu js-clone-nav d-lg-block">
-                <li class=""><a href="home.php">Home</a></li>
-                <li class="active"><a href="shop.php">Store</a></li>
-                <li><a href="aboutus.html">About</a></li>
-                <li><a href="contact.html">Contact</a></li>
-              </ul>
-            </nav>
-          </div>
-          <?php
-          if (isset($_SESSION['id'])) {
-            echo "<div class='logout'><a href='../actions/logout.php'>Logout</a></div>";
-          } else {
-            echo "<div class='login'><a href='../login/login.php'>Sign in</a></div>";
-          } ?>
-          <div class="profile">
-            <a href="
+        <!--Navigation Bar-->
+        <div class="site-navbar bg-primary py-2">
+            <div class="container">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="logo">
+                        <div class="site-logo">
+                            <a href="home.php" class="js-logo-clone"><img src="../img/logo/logo.png"  style="width:50px; border-radius:50px;" alt="logo"/></a>
+                        </div>
+                    </div>
+                    <div class="main-nav d-lg-block">
+                        <nav class="site-navigation text-right text-md-center" role="navigation">
+                            <ul class="site-menu js-clone-nav d-lg-block">
+                                <li class=""><a href="home.php">Home</a></li>
+                                <li class="active"><a href="shop.php">Store</a></li>
+                                <li><a href="aboutus.html">About</a></li>
+                                <li><a href="contact.html">Contact</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <?php
+                    if(isset($_SESSION['id'])){
+                        echo "<div class='logout'><a href='../actions/logout.php'>Logout</a></div>";
+                    }else{
+                        echo "<div class='login'><a href='../login/login.php'>Sign in</a></div>";
+                    }?>
+                    <div class="profile">
+                        <a href="
                         <?php
-                        if (isset($_SESSION['id'])) {
-                          echo "profile.php";
-                        } else {
-                          echo "../login/login.php";
+                        if(isset($_SESSION['id'])){
+                            echo "profile.php";
+                        }else{
+                            echo "../login/login.php";
                         }
                         ?>
                         "><img src="
                         <?php
-                        if (isset($_SESSION['id'])) {
-                          echo "../img/profile.jpg";
-                        } else {
-                          echo "../img/default_profile.jpg";
-                        }
+                            if(isset($_SESSION['id'])){
+                                echo "../img/profile.jpg";
+                            }else{
+                                echo "../img/default_profile.jpg";
+                            }
                         ?>
                         " alt="Image" class="rounded-circle" style="width:50px; border-radius:50px;"></a>
-          </div>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </div>
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
           <div class="col-md-12 mb-0"><a href="home.php">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Store</strong></div>
-          <div class="col">
-            <form action="" method="get">
-              <div class="row">
-                <input type="text" class="form-control col-9" id="search" placeholder="Search" name="med">
-                <input type="submit" class="col btn" value="Search" />
-              </div>
-            </form>
-          </div>
         </div>
       </div>
     </div>
 
     <div class="container">
-      <?php
-      if ($_GET['med']) {
+      <?php 
+      if($_GET['med']){
         include '../functions/med_search_fxn.php';
         find($_GET['med']);
-      } else {
-        include '../functions/med_list_fxn.php';
+      }else{
+      include '../functions/med_list_fxn.php';
       }
       ?>
       <!-- <div class="row">
@@ -295,8 +289,8 @@ if (!isset($_SESSION['id'])) {
 
           <div class="block-7">
             <h3 class="footer-heading mb-4">About Us</h3>
-            <p>We aim to solve the problem of access to information and streamline the pharmaceutical supply chain by providing a
-              comprehensive online platform. This platform will cater to pharmacies, pharmaceutical businesses, and individual consumers,
+            <p>We aim to solve the problem of access to information and streamline the pharmaceutical supply chain by providing a 
+              comprehensive online platform. This platform will cater to pharmacies, pharmaceutical businesses, and individual consumers, 
               offering them a range of features to meet their needs</p>
           </div>
 
@@ -335,18 +329,16 @@ if (!isset($_SESSION['id'])) {
   <script src="../js/owl.carousel.min.js"></script>
   <script src="../js/jquery.magnific-popup.min.js"></script>
   <script src="../js/aos.js"></script>
-  <script>
-    src = "../js/shop.js"
-  </script>
+  <script>src="../js/shop.js"</script>
 
   <script src="../js/main.js"></script>
 
   <script>
-    $(document).ready(function() {
-      $('.buy-button').click(function() {
+    $(document).ready(function () {
+      $('.buy-button').click(function () {
         var drugName = $(this).attr('data-drug');
         var prescriptionRequired = $(this).attr('data-prescription-required') === 'true';
-
+  
         if (prescriptionRequired) {
           // Display popup for prescription upload
           var popupContent = '<div>Prescription is required for ' + drugName + '. Please upload a prescription.</div>';
@@ -358,9 +350,9 @@ if (!isset($_SESSION['id'])) {
               type: 'inline'
             }
           });
-
+  
           // Process the purchase after prescription validation
-          $('.upload-prescription').click(function() {
+          $('.upload-prescription').click(function () {
             var uploadedPrescription = $('.prescription').prop('files')[0];
             if (uploadedPrescription) {
               alert('Prescription uploaded for ' + drugName + '. It will take some time while we validate the prescription.');
@@ -377,7 +369,7 @@ if (!isset($_SESSION['id'])) {
       });
     });
   </script>
-
+  
 
 </body>
 

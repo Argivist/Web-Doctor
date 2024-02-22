@@ -53,14 +53,14 @@ INSERT INTO `pharmacy` (`pharm_id`, `pharm_name`, `pharm_inventory`) VALUES
 (4, 'Walmart', 100),
 (5, 'Kroger', 100)
 
-INSERT INTO `medicine_inventory` (`medicine_id`,`medicine_name`, `medicine_qty`, `medicine_price`, `pharm_id`) VALUES
-(1, 'Tylenol', 100, 10, 1),
-(2, 'Advil', 100, 10, 2),
-(3, 'Aspirin', 100, 10, 3),
-(4, 'Benadryl', 100, 10, 4),
-(5, 'Zyrtec', 100, 10, 5),
-(6, 'Claritin', 100, 10, 1),
-(7, 'Allegra', 100, 10, 2),
-(8, 'Mucinex', 100, 10, 3),
-(9, 'Robitussin', 100, 10, 4),
-(10, 'DayQuil', 100, 10, 5);
+INSERT INTO `medicine_inventory` (`medicine_id`, `medicine_qty`, `medicine_price`, `pharm_id`) VALUES
+(1, 100, 10, 1),
+(2, 100, 20, 2),
+(3, 100, 30, 3),
+(4, 100, 40, 4),
+(5, 100, 50, 5),
+(6, 100, 60, 1),
+(7, 100, 70, 2),
+(8, 100, 80, 3),
+(9, 100, 90, 4),
+(10, 100, 100, 5)
