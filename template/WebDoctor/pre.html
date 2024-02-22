@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Pharmacy</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Magnific Popup CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css">
+  <!-- Custom CSS -->
+  <style>
+    /* Styles for the store page */
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9fa;
+      padding-top: 60px;
+    }
+
+    .site-wrap {
+      min-height: 100vh;
+    }
+
+    .site-navbar {
+      background-color: #343a40;
+      padding: 10px 0;
+      z-index: 9999;
+      width: 100%;
+      position: fixed;
+      top: 0;
+    }
+
+    .site-navbar .site-logo a {
+      color: #ffffff;
+      font-size: 1.5rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+
+    .site-navbar .site-logo a:hover {
+      text-decoration: none;
+    }
+
+    .site-navbar .site-menu {
+      margin-top: 10px;
+    }
+
+    .site-navbar .site-menu a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 1rem;
+    }
+
+    .site-navbar .site-menu a:hover {
+      color: #cccccc;
+    }
+
+    /* Footer styles */
+    .site-footer {
+      background-color: #343a40;
+      color: #ffffff;
+      padding: 30px 0;
+    }
+
+    .site-footer p {
+      margin-bottom: 0;
+    }
+
+    /* Styles for the prescription validation page */
+
+    .prescription-container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .prescription {
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px;
+      margin-bottom: 30px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+    }
+
+    .prescription:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .prescription img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .prescription h3 {
+      color: #343a40;
+      font-size: 22px;
+      margin-bottom: 20px;
+    }
+
+    .btn {
+      border-radius: 20px;
+      font-size: 16px;
+      padding: 10px 20px;
+      margin-right: 10px;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .badge {
+      font-size: 14px;
+      border-radius: 20px;
+    }
+
+    .badge-secondary {
+      background-color: #6c757d;
+    }
+
+    .badge-success {
+      background-color: #28a745;
+    }
+
+    /* Modal styles */
+
+    .modal-content {
+      border-radius: 15px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .modal-header,
+    .modal-body,
+    .modal-footer {
+      border: none;
+    }
+
+    .modal-title {
+      color: #343a40;
+      font-size: 24px;
+    }
+
+    .modal-body p {
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="site-wrap">
+
+    <!-- Navigation Bar -->
+    <div class="site-navbar py-2">
+
+      <div class="container">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="logo">
+            <div class="site-logo">
+              <a href="#" class="js-logo-clone">The Pharmacy</a>
+            </div>
+          </div>
+          <div class="main-nav d-none d-lg-block">
+            <nav class="site-navigation text-right text-md-center" role="navigation">
+              <ul class="site-menu js-clone-nav d-none d-lg-block">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Store</a></li>
+                <li class="has-children">
+                  <a href="#">Dropdown</a>
+                  <ul class="dropdown">
+                    <li><a href="#">Supplements</a></li>
+                    <li class="has-children">
+                      <a href="#">Vitamins</a>
+                    </li>
+                    <li><a href="#">Diet &amp; Nutrition</a></li>
+                    <li><a href="#">Tea &amp; Coffee</a></li>
+                  </ul>
+                </li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="icons">
+            <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
+            <a href="#" class="icons-btn d-inline-block bag">
+              <span class="icon-shopping-bag"></span>
+              <span class="number">2</span>
+            </a>
+            <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span
+                class="icon-menu"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Store and Prescription Validation Section -->
+    <div class="container prescription-container">
+      <div class="row">
+        <!-- Store Section -->
+        <div class="col-md-12 mb-4 mt-4">
+          <div class="row">
+            <div class="col-sm-6 col-lg-4 text-center item mb-4">
+              <a href="shop-single.html"> <img src="images/product_01.png" alt="Image"></a>
+              <h3 class="text-dark"><a href="shop-single.html">Bioderma</a></h3>
+              <p class="price">100.00 cedis</p>
+              <p class="inventory">Inventory: 27</p>
+              <button class="btn btn-primary buy-button" data-drug="Bioderma"
+                data-prescription-required="false">Buy Bioderma</button>
+            </div>
+            <!-- Add more drug items here -->
+          </div>
+        </div>
+
+        <!-- Prescription Validation Section -->
+        <div class="col-lg-6">
+          <div class="prescription">
+            <h3>Prescription for John Doe</h3>
+            <img src="prescription1.jpg" alt="Prescription">
+            <button class="btn btn-primary validate-button" data-product-name="Bioderma">Validate Prescription</button>
+            <button class="btn btn-success view-profile-button" data-toggle="modal" data-target="#profileModal"
+              data-name="John Doe" data-age="35">View Buyer Profile</button>
+            <button class="btn btn-danger reject-button" data-toggle="modal" data-target="#reasonModal"
+              data-product-name="Bioderma">Reject Prescription</button>
+            <span class="validation-status badge badge-secondary">Pending</span>
+          </div>
+          <!-- Add more prescription items here -->
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+            <div class="block-7">
+              <h3 class="footer-heading mb-4">About Us</h3>
+              <p>We aim to solve the problem of access to information and streamline the pharmaceutical supply chain
+                by providing a comprehensive online platform. This platform will cater to pharmacies, pharmaceutical
+                businesses, and individual consumers, offering them a range of features to meet their needs.</p>
+            </div>
+          </div>
+          <div class="col-lg-3 mx-auto mb-5 mb-lg-0">
+            <h3 class="footer-heading mb-4">Quick Links</h3>
+            <ul class="list-unstyled">
+              <li><a href="#">Supplements</a></li>
+              <li><a href="#">Vitamins</a></li>
+              <li><a href="#">Diet &amp; Nutrition</a></li>
+              <li><a href="#">Tea &amp; Coffee</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6 col-lg-3">
+            <div class="block-5 mb-5">
+              <h3 class="footer-heading mb-4">Contact Info</h3>
+              <ul class="list-unstyled">
+                <li class="address">1 University Avenue Berekuso</li>
+                <li class="phone"><a href="tel://23923929210">+233 54992328</a></li>
+                <li class="email">priscile.nzonbi@ashesi.edu.gh</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Profile Modal -->
+    <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="profileModalLabel">Buyer Profile</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>Name: <span id="buyerName"></span></p>
+            <p>Age: <span id="buyerAge"></span></p>
+            <p>Adult: <span id="isAdult"></span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Reason Modal -->
+    <div class="modal fade reason-modal" id="reasonModal" tabindex="-1" role="dialog"
+      aria-labelledby="reasonModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="reasonModalLabel">Provide Reason for Rejection</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <textarea class="form-control rejection-reason" rows="4"></textarea>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-danger submit-rejection">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <!-- Magnific Popup -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/jquery.magnific-popup.min.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $('.buy-button').click(function () {
+          var drugName = $(this).attr('data-drug');
+          var prescriptionRequired = $(this).attr('data-prescription-required') === 'true';
+
+          if (prescriptionRequired) {
+            // Display popup for prescription upload
+            var popupContent = '<div>Prescription is required for ' + drugName + '. Please upload a prescription.</div>';
+            popupContent += '<input type="file" class="prescription">';
+            popupContent += '<button class="btn btn-primary upload-prescription">Upload Prescription</button>';
+            $.magnificPopup.open({
+              items: {
+                src: '<div class="white-popup">' + popupContent + '</div>',
+                type: 'inline'
+              }
+            });
+
+            // Process the purchase after prescription validation
+            $('.upload-prescription').click(function () {
+              var uploadedPrescription = $('.prescription').prop('files')[0];
+              if (uploadedPrescription) {
+                alert('Prescription uploaded for ' + drugName + '. It will take some time while we validate the prescription.');
+                // Close the popup after processing
+                $.magnificPopup.close();
+              } else {
+                alert('Please upload a prescription.');
+              }
+            });
+          } else {
+            // Process the purchase
+            alert('Processing purchase of ' + drugName + '...');
+          }
+        });
+
+        // Handle click on view profile button
+        $('.view-profile-button').click(function () {
+          var buyerName = $(this).data('name');
+          var buyerAge = $(this).data('age');
+          $('#buyerName').text(buyerName);
+          $('#buyerAge').text(buyerAge);
+          $('#isAdult').text(buyerAge >= 18 ? "Yes" : "No");
+        });
+
+        // Handle click on validate button
+        $('.validate-button').click(function () {
+          var prescription = $(this).closest('.prescription');
+          var productName = $(this).data('product-name');
+          validatePrescription(prescription, productName);
+        });
+
+        // Handle click on reject button
+        $('.reject-button').click(function () {
+          var productName = $(this).data('product-name');
+          $('.rejection-reason').data('product-name', productName);
+        });
+
+        // Handle click on submit rejection button
+        $('.submit-rejection').click(function () {
+          var prescription = $('.rejection-reason').closest('.prescription');
+          var productName = $('.rejection-reason').data('product-name');
+          var rejectionReason = $('.rejection-reason').val();
+          rejectPrescription(prescription, productName, rejectionReason);
+          $('#reasonModal').modal('hide');
+        });
+
+        // Function to validate prescription
+        function validatePrescription(prescription, productName) {
+          // Dummy validation logic (replace with actual validation)
+          prescription.find('.validation-status').removeClass('badge-secondary').addClass('badge-success').text('Validated');
+        }
+
+        // Function to reject prescription
+        function rejectPrescription(prescription, productName, rejectionReason) {
+          // Send AJAX request to reject prescription
+          prescription.find('.validation-status').removeClass('badge-secondary').addClass('badge-danger').text('Rejected');
+          // You may want to update the UI to reflect rejection reason
+        }
+      });
+    </script>
+
+</body>
+
+</html>
