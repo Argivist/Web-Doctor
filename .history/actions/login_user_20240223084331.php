@@ -24,7 +24,7 @@ $pass=$_POST['passwd'];
             $_SESSION['email']=$row['email'];
             $_SESSION['phone']=$row['phone'];
             $_SESSION['address']=$row['address'];
-            $_SESSION['username_p']="Pharmacy";
+        
             header("Location: ../view/home.php");
         }else{
             header("Location: ../login/login.php?error=Invalid password");

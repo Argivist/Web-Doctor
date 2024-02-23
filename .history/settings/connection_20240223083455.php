@@ -1,7 +1,7 @@
 <?php
-$server="localhost";
+$server="localhost:3307";
 $user="root";
-$passwd="";
+$passwd="root";
 $db="web_doctors";
 
 $conn=mysqli_connect($server,$user,$passwd,$db) or die("Connection failed :: ".$conn->error);
