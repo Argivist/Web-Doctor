@@ -21,10 +21,10 @@
     <div class="site-wrap justify-content-center">
 
         <div class="site-blocks-cover" style="background-image: url('../img/background/pharmacy_1.jpg');">
-            <div class="container" >
-                <div class="row" >
+            <div class="container">
+                <div class="row">
                     <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
-                        <div class="site-block-cover-content text-center" style="backdrop-filter:blur(20px); background:rgba(22,230,255,0.5); padding:20px; border-radius:10px;">
+                        <div class="site-block-cover-content text-center">
                             <h2 class="sub-title"><?php if (isset($_GET['error'])) {
                                                         echo "<div class='alert alert-danger' role='alert'>". $_GET['error']."</div>";
                                                     } else {
@@ -33,7 +33,7 @@
                             <h1>Login</h1>
                             <form action="../actions/login_user.php" method="POST" class="was-validated">
                                 <div class="mb-3 mt-3 ">
-                                    <input type="text" class="form-control" id="email" placeholder="Enter Email Adress" name="email" required>
+                                    <input type="text" class="form-control" id="email" placeholder="Enter username" name="email" required>
                                 </div>
                                 <div class="mb-3">
                                     <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="passwd" required>

@@ -24,7 +24,7 @@
             <div class="container" >
                 <div class="row" >
                     <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
-                        <div class="site-block-cover-content text-center" style="backdrop-filter:blur(20px); background:rgba(22,230,255,0.5); padding:20px; border-radius:10px;">
+                        <div class="site-block-cover-content text-center" style="backdrop-filter:blur(20px); background:rgba(255,255,25,0.5);">
                             <h2 class="sub-title"><?php if (isset($_GET['error'])) {
                                                         echo "<div class='alert alert-danger' role='alert'>". $_GET['error']."</div>";
                                                     } else {
