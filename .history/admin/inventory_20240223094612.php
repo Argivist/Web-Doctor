@@ -95,10 +95,9 @@ session_start();
       <div class="container">
         <div class="row">
           <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
-            <div class="site-block-cover-content text-center"  style="backdrop-filter:blur(20px); background:rgba(22,230,255,0.5); padding:20px; border-radius:10px;"
->
+            <div class="site-block-cover-content text-center">
             <h2>Inventory Management System</h2>
-<button class="btn" onclick="addItem()">Add New Item</button>
+<button onclick="addItem()">Add New Item</button>
 <table id="inventoryTable">
     <thead>
         <tr>

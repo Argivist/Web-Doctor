@@ -23,7 +23,7 @@ session_start();
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8f9fa;
-            
+            padding: 20px;
         }
         .prescription-container {
             max-width: 900px;
@@ -179,8 +179,7 @@ session_start();
 
         <!--Main Content-->
         <!--Image By: Photo by Alex Green: https://www.pexels.com/photo/pile-of-white-spilled-pills-5699514/-->
-        <div class="site-blocks-cover"
-        >
+        <div class="site-blocks-cover" style="background-image: url('../img/background/pharmacy_1.jpg');">
       <div class="container">
         <div class="row">
           <div class="col-lg-7 mx-auto order-lg-2 align-self-center">

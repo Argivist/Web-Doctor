@@ -95,10 +95,9 @@ session_start();
       <div class="container">
         <div class="row">
           <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
-            <div class="site-block-cover-content text-center"  style="backdrop-filter:blur(20px); background:rgba(22,230,255,0.5); padding:20px; border-radius:10px;"
->
+            <div class="site-block-cover-content text-center">
             <h2>Inventory Management System</h2>
-<button class="btn" onclick="addItem()">Add New Item</button>
+<button onclick="addItem()">Add New Item</button>
 <table id="inventoryTable">
     <thead>
         <tr>
@@ -118,8 +117,8 @@ session_start();
     <input type="text" id="productId" placeholder="Product ID"><br>
     <input type="text" id="productName" placeholder="Product Name"><br>
     <input type="number" id="quantity" placeholder="Quantity"><br>
-    <button  class="btn" onclick="saveItem()">Save</button>
-    <button class="btn" onclick="cancelAddItem()">Cancel</button>
+    <button onclick="saveItem()">Save</button>
+    <button onclick="cancelAddItem()">Cancel</button>
 </div>
             </div>
           </div>
@@ -135,6 +134,7 @@ let inventory = [
     { id: 2, name: "Product B", quantity: 20 },
     { id: 3, name: "Product C", quantity: 15 }
 ];
+
 // Function to render inventory table
 function renderInventory() {
     const tbody = document.getElementById("inventoryBody");
@@ -145,7 +145,7 @@ function renderInventory() {
             <td>${item.id}</td>
             <td>${item.name}</td>
             <td>${item.quantity}</td>
-            <td><button class="btn" onclick="removeItem(${item.id})">Remove</button></td>
+            <td><button onclick="removeItem(${item.id})">Remove</button></td>
         `;
         tbody.appendChild(tr);
     });

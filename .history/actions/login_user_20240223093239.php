@@ -8,8 +8,7 @@ $pass=$_POST['passwd'];
 if($email=="admin"&&$pass=="admin"){
     $_SESSION['id']=0;
     $_SESSION['username']="Admin";
-    header("Location: ../admin/home.php");
-    exit();
+    header("Location: ../view/home.php");
 }
  $query="SELECT * FROM people WHERE email=?";
     $stmt=$conn->prepare($query);

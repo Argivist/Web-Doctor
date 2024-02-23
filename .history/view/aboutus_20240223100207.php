@@ -35,55 +35,53 @@ session_start();
 
     <!--Navigation Bar-->
     <div class="site-navbar bg-primary py-2">
-            <div class="container">
-                <div class="d-flex align-items-center justify-content-between">
-                    <div class="logo">
-                        <div class="site-logo">
-                            <a href="home.php" class="js-logo-clone"><img src="../img/logo/logo.png"  style="width:50px; border-radius:50px;" alt="logo"/></a>
-                        </div>
-                    </div>
-                    <div class="main-nav d-lg-block">
-                        <nav class="site-navigation text-right text-md-center" role="navigation">
-                            <ul class="site-menu js-clone-nav d-lg-block">
-                                <li class=""><a href="home.php">Home</a></li>
-                                
-                                <li><a href="inventory.php">Inventory</a></li>
-                                <li class=""><a href="statistics.php">Check Stats</a></li>
-                                <li class=""><a href="presc.php">Validate Prescriptions</a></li>
-                                
-                                <li class="active"><a href="aboutus.php">About</a></li>
-                            
-                            </ul>
-                        </nav>
-                    </div>
-                    <?php
-                    if(isset($_SESSION['id'])){
-                        echo "<div class='logout'><a href='../actions/logout.php'>Logout</a></div>";
-                    }else{
-                        echo "<div class='login'><a href='../login/login.php'>Sign in</a></div>";
-                    }?>
-                    <div class="profile">
-                        <a href="
-                        <?php
-                        if(isset($_SESSION['id'])){
-                            echo "profile.php";
-                        }else{
-                            echo "../login/login.php";
-                        }
-                        ?>
-                        "><img src="
-                        <?php
-                            if(isset($_SESSION['id'])){
-                                echo "../img/logo/logo.png";
-                            }else{
-                                echo "../img/profile.jpg";
-                            }
-                        ?>
-                        " alt="Image" class="rounded-circle" style="width:50px; border-radius:50px;"></a>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="logo">
+            <div class="site-logo">
+              <a href="home.php" class="js-logo-clone"><img src="../img/logo/logo.png" style="width:50px; border-radius:50px;" alt="logo" /></a>
             </div>
+          </div>
+          <div class="main-nav d-lg-block">
+            <nav class="site-navigation text-right text-md-center" role="navigation">
+              <ul class="site-menu js-clone-nav d-lg-block">
+                <li class=""><a href="home.php">Home</a></li>
+                <li><a href="shop.php">Store</a></li>
+                <li class=""><a href="prescription.php">Prescription</a></li>
+
+                <li class="active"><a href="aboutus.php">About</a></li>
+                
+              </ul>
+            </nav>
+          </div>
+          <?php
+          if (isset($_SESSION['id'])) {
+            echo "<div class='logout'><a href='../actions/logout.php'>Logout</a></div>";
+          } else {
+            echo "<div class='login'><a href='../login/login.php'>Sign in</a></div>";
+          } ?>
+          <div class="profile">
+            <a href="
+                  <?php
+                  if (isset($_SESSION['id'])) {
+                    echo "profile.php";
+                  } else {
+                    echo "../login/login.php";
+                  }
+                  ?>
+                  "><img src="
+                  <?php
+                  if (isset($_SESSION['id'])) {
+                    echo "../img/profile.jpg";
+                  } else {
+                    echo "../img/default_profile.jpg";
+                  }
+                  ?>
+                  " alt="Image" class="rounded-circle" style="width:50px; border-radius:50px;"></a>
+          </div>
         </div>
+      </div>
+    </div>
                   <!-- About tag -->
     <div class="site-blocks-cover inner-page" style="background-image: url('../img/background/pharmacy_1.jpg');" >
       <div class="container">

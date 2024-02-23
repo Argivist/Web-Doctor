@@ -1,191 +1,192 @@
 <?php
-include "../settings/connection.php";
 session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="icon" href="../img/logo/logo.png"/>
+  <title><?php 
+    if(!isset($_SESSION['username_p'])){
+      echo $_SESSION['username_p'];
+    ?></title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet">
-    <link rel="stylesheet" href="fonts/icomoon/style.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/magnific-popup.css">
-    <link rel="stylesheet" href="../css/jquery-ui.css">
-    <link rel="stylesheet" href="../css/owl.carousel.min.css">
-    <link rel="stylesheet" href="../css/owl.theme.default.min.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/aos.css">
-    <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-            
-        }
-        .prescription-container {
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        .prescription {
-            border: 1px solid #ddd;
-            border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 30px;
-            background-color: #fff;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-        }
-        .prescription:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px rgba(0,0,0,0.15);
-        }
-        .prescription img {
-            max-width: 100%;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .prescription h3 {
-            color: #343a40;
-            font-size: 22px;
-            margin-bottom: 20px;
-        }
-        .btn {
-            border-radius: 20px;
-            font-size: 16px;
-            padding: 10px 20px;
-            margin-right: 10px;
-            transition: all 0.3s ease;
-        }
-        .btn:hover {
-            transform: translateY(-2px);
-        }
-        .modal-content {
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.2);
-        }
-        .modal-header, .modal-body, .modal-footer {
-            border: none;
-        }
-        .modal-title {
-            color: #343a40;
-            font-size: 24px;
-        }
-        .modal-body p {
-            font-size: 18px;
-            margin-bottom: 15px;
-        }
-        .badge {
-            font-size: 14px;
-            border-radius: 20px;
-        }
-        .badge-secondary {
-            background-color: #6c757d;
-        }
-        .badge-success {
-            background-color: #28a745;
-        }
+  <link href="https://fonts.googleapis.com/css?family=Rubik:400,700|Crimson+Text:400,400i" rel="stylesheet">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
 
-        .prescription {
-            margin-top: 10px;
-          }
+  <link rel="stylesheet" href="../css/bootstrap.min.css">
+  <link rel="stylesheet" href="../css/magnific-popup.css">
+  <link rel="stylesheet" href="../css/jquery-ui.css">
+  <link rel="stylesheet" href="../css/owl.carousel.min.css">
+  <link rel="stylesheet" href="../css/owl.theme.default.min.css">
+
+
+  <link rel="stylesheet" href="../css/aos.css">
+
+  <link rel="stylesheet" href="../css/style.css">
+
+  <style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f8f9fa;
+        padding: 20px;
+    }
+    .prescription-container {
+        max-width: 900px;
+        margin: 0 auto;
+    }
+    .prescription {
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 30px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+    }
+    .prescription:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 20px rgba(0,0,0,0.15);
+    }
+    .prescription img {
+        max-width: 100%;
+        border-radius: 8px;
+        margin-bottom: 15px;
+        box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    .prescription h3 {
+        color: #343a40;
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    .btn {
+        border-radius: 20px;
+        font-size: 16px;
+        padding: 10px 20px;
+        margin-right: 10px;
+        transition: all 0.3s ease;
+    }
+    .btn:hover {
+        transform: translateY(-2px);
+    }
+    .modal-content {
+        border-radius: 15px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    }
+    .modal-header, .modal-body, .modal-footer {
+        border: none;
+    }
+    .modal-title {
+        color: #343a40;
+        font-size: 24px;
+    }
+    .modal-body p {
+        font-size: 18px;
+        margin-bottom: 15px;
+    }
+    .badge {
+        font-size: 14px;
+        border-radius: 20px;
+    }
+    .badge-secondary {
+        background-color: #6c757d;
+    }
+    .badge-success {
+        background-color: #28a745;
+    }
+
+    .prescription {
+        margin-top: 10px;
+      }
+  
+        .white-popup {
+          background: #fff;
+          padding: 20px;
+          max-width: 400px;
+          margin: 0 auto;
+          text-align: center;
+          border-radius: 5px;
+        }
       
-            .white-popup {
-              background: #fff;
-              padding: 20px;
-              max-width: 400px;
-              margin: 0 auto;
-              text-align: center;
-              border-radius: 5px;
-            }
-          
-            .white-popup input[type="file"] {
-              margin-bottom: 10px;
-            }
-          
-            .white-popup button {
-              background-color: #04e2f6;
-              border: none;
-              color: white;
-              padding: 10px 20px;
-              text-align: center;
-              text-decoration: none;
-              display: inline-block;
-              font-size: 16px;
-              margin: 4px 2px;
-              cursor: pointer;
-              border-radius: 5px;
-            }
-    </style>
+        .white-popup input[type="file"] {
+          margin-bottom: 10px;
+        }
+      
+        .white-popup button {
+          background-color: #04e2f6;
+          border: none;
+          color: white;
+          padding: 10px 20px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+          border-radius: 5px;
+        }
+</style>
 </head>
 
 <body>
-    <div class="site-wrap">
-        
-        <!--Navigation Bar-->
-        <div class="site-navbar bg-primary py-2">
-            <div class="container">
-                <div class="d-flex align-items-center justify-content-between">
-                    <div class="logo">
-                        <div class="site-logo">
-                            <a href="home.php" class="js-logo-clone"><img src="../img/logo/logo.png"  style="width:50px; border-radius:50px;" alt="logo"/></a>
-                        </div>
-                    </div>
-                    <div class="main-nav d-lg-block">
-                        <nav class="site-navigation text-right text-md-center" role="navigation">
-                            <ul class="site-menu js-clone-nav d-lg-block">
-                                <li class=""><a href="home.php">Home</a></li>
-                                
-                                <li><a href="inventory.php">Inventory</a></li>
-                                <li class=""><a href="statistics.php">Check Stats</a></li>
-                                <li class="active"><a href="presc.php">Validate Prescriptions</a></li>
-                                
-                                <li><a href="aboutus.php">About</a></li>
-                            
-                            </ul>
-                        </nav>
-                    </div>
-                    <?php
-                    if(isset($_SESSION['id'])){
-                        echo "<div class='logout'><a href='../actions/logout.php'>Logout</a></div>";
-                    }else{
-                        echo "<div class='login'><a href='../login/login.php'>Sign in</a></div>";
-                    }?>
-                    <div class="profile">
-                        <a href="
-                        <?php
-                        if(isset($_SESSION['id'])){
-                            echo "profile.php";
-                        }else{
-                            echo "../login/login.php";
-                        }
-                        ?>
-                        "><img src="
-                        <?php
-                            if(isset($_SESSION['id'])){
-                                echo "../img/logo/logo.png";
-                            }else{
-                                echo "../img/profile.jpg";
-                            }
-                        ?>
-                        " alt="Image" class="rounded-circle" style="width:50px; border-radius:50px;"></a>
-                    </div>
-                </div>
+
+  <div class="site-wrap">
+
+
+    <div class="site-navbar py-2">
+
+      <div class="search-wrap">
+        <div class="container">
+          <a href="#" class="search-close js-search-close"><span class="icon-close2"></span></a>
+          <form action="#" method="post">
+            <input type="text" class="form-control" placeholder="Search keyword and hit enter...">
+          </form>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="logo">
+            <div class="site-logo">
+              <a href="pharmacy.html" class="js-logo-clone">  if(!isset($_SESSION['username_p'])){
+                echo $_SESSION['username_p'];
+              ?></a>
             </div>
+          </div>
+          <div class="main-nav d-none d-lg-block">
+            <nav class="site-navigation text-right text-md-center" role="navigation">
+              <ul class="site-menu js-clone-nav d-none d-lg-block">
+                <li><a href="pharmacy.php">Home</a></li>
+                <li><a href="inventory.php">Inventory</a></li>
+                <li class="active"><a href="aboutus.php">About</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div class="icons">
+            <a href="#" class="icons-btn d-inline-block js-search-open"><span class="icon-search"></span></a>
+            <a href="cart.html" class="icons-btn d-inline-block bag">
+              <span class="icon-shopping-bag"></span>
+              <span class="number">2</span>
+            </a>
+            <a href="#" class="site-menu-toggle js-menu-toggle ml-3 d-inline-block d-lg-none"><span
+                class="icon-menu"></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    
+        <div class="bg-light py-3">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 mb-0"><a href="pharmacy.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Prescription</strong></div>
+            </div>
+          </div>
         </div>
 
-        <!--Main Content-->
-        <!--Image By: Photo by Alex Green: https://www.pexels.com/photo/pile-of-white-spilled-pills-5699514/-->
-        <div class="site-blocks-cover"
-        >
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
-            <div class="site-block-cover-content text-center">
-            <div class="container prescription-container">
+    <div class="container prescription-container">
         <div class="row">
             <div class="col-lg-6">
                 <div class="prescription">
@@ -289,13 +290,73 @@ session_start();
             </div>
         </div>
     </div>
+
+    <div class="site-section bg-secondary bg-image" style="background-image: url('images/bg_2.jpg');">
+        <div class="container">
+          <div class="row align-items-stretch">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <a href="#" class="banner-1 h-100 d-flex" style="background-image: url('images/bg_1.jpg');">
+                <div class="banner-1-inner align-self-center">
+                  <h2>The Pharmacy Products</h2>
+                  <p>Find your products here.
+                  </p>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <a href="#" class="banner-1 h-100 d-flex" style="background-image: url('images/bg_2.jpg');">
+                <div class="banner-1-inner ml-auto  align-self-center">
+                  <h2>Rated by Experts</h2>
+                  <p>You can trust us, we got your back.
+                  </p>
+                </div>
+              </a>
             </div>
           </div>
         </div>
       </div>
-    </div>
-</body>
-<script src="js/jquery-3.3.1.min.js"></script>
+    
+      <footer class="site-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+    
+              <div class="block-7">
+                <h3 class="footer-heading mb-4">About Us</h3>
+                <p>We aim to solve the problem of access to information and streamline the pharmaceutical supply chain by providing a 
+                  comprehensive online platform. This platform will cater to pharmacies, pharmaceutical businesses, and individual consumers, 
+                  offering them a range of features to meet their needs</p>
+              </div>
+    
+            </div>
+            <div class="col-lg-3 mx-auto mb-5 mb-lg-0">
+              <h3 class="footer-heading mb-4">Quick Links</h3>
+              <ul class="list-unstyled">
+                <li><a href="#">Supplements</a></li>
+                <li><a href="#">Vitamins</a></li>
+                <li><a href="#">Diet &amp; Nutrition</a></li>
+                <li><a href="#">Tea &amp; Coffee</a></li>
+              </ul>
+            </div>
+    
+            <div class="col-md-6 col-lg-3">
+              <div class="block-5 mb-5">
+                <h3 class="footer-heading mb-4">Contact Info</h3>
+                <ul class="list-unstyled">
+                  <li class="address">1 University Avenue Berekuso</li>
+                  <li class="phone"><a href="tel://23923929210">+233 54992328</a></li>
+                  <li class="email">priscile.nzonbi@ashesi.edu.gh</li>
+                </ul>
+              </div>
+    
+    
+            </div>
+          </div>
+    
+        </div>
+      </footer>
+    
+      <script src="js/jquery-3.3.1.min.js"></script>
       <script src="js/jquery-ui.js"></script>
       <script src="js/popper.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
@@ -358,4 +419,5 @@ session_start();
             }
         });
     </script>
+</body>
 </html>

@@ -19,21 +19,6 @@ session_start();
     <link rel="stylesheet" href="../css/owl.theme.default.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/aos.css">
-    <style>
-    /* Styles for the inventory table */
-    table {
-        border-collapse: collapse;
-        width: 100%;
-    }
-    th, td {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-    }
-    th {
-        background-color: #f2f2f2;
-    }
-</style>
 </head>
 
 <body>
@@ -91,14 +76,13 @@ session_start();
             </div>
         </div>
 
-            <div class="site-blocks-cover">
+            <div class="site-blocks-cover" style="background-image: url('../img/background/pharmacy_1.jpg');">
       <div class="container">
         <div class="row">
           <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
-            <div class="site-block-cover-content text-center"  style="backdrop-filter:blur(20px); background:rgba(22,230,255,0.5); padding:20px; border-radius:10px;"
->
+            <div class="site-block-cover-content text-center">
             <h2>Inventory Management System</h2>
-<button class="btn" onclick="addItem()">Add New Item</button>
+<button onclick="addItem()">Add New Item</button>
 <table id="inventoryTable">
     <thead>
         <tr>
@@ -118,8 +102,8 @@ session_start();
     <input type="text" id="productId" placeholder="Product ID"><br>
     <input type="text" id="productName" placeholder="Product Name"><br>
     <input type="number" id="quantity" placeholder="Quantity"><br>
-    <button  class="btn" onclick="saveItem()">Save</button>
-    <button class="btn" onclick="cancelAddItem()">Cancel</button>
+    <button onclick="saveItem()">Save</button>
+    <button onclick="cancelAddItem()">Cancel</button>
 </div>
             </div>
           </div>
@@ -128,59 +112,4 @@ session_start();
     </div>
 </body>
 
-<script>
-// Sample inventory data
-let inventory = [
-    { id: 1, name: "Product A", quantity: 10 },
-    { id: 2, name: "Product B", quantity: 20 },
-    { id: 3, name: "Product C", quantity: 15 }
-];
-// Function to render inventory table
-function renderInventory() {
-    const tbody = document.getElementById("inventoryBody");
-    tbody.innerHTML = "";
-    inventory.forEach(item => {
-        const tr = document.createElement("tr");
-        tr.innerHTML = `
-            <td>${item.id}</td>
-            <td>${item.name}</td>
-            <td>${item.quantity}</td>
-            <td><button class="btn" onclick="removeItem(${item.id})">Remove</button></td>
-        `;
-        tbody.appendChild(tr);
-    });
-}
-
-// Function to add a new item
-function addItem() {
-    document.getElementById("addItemModal").style.display = "block";
-}
-
-// Function to save the new item
-function saveItem() {
-    const productId = document.getElementById("productId").value;
-    const productName = document.getElementById("productName").value;
-    const quantity = parseInt(document.getElementById("quantity").value);
-    if (productId && productName && quantity) {
-        inventory.push({ id: productId, name: productName, quantity: quantity });
-        renderInventory();
-        cancelAddItem();
-    } else {
-        alert("Please fill all fields.");
-    }
-}
-
-// Function to cancel adding a new item
-function cancelAddItem() {
-    document.getElementById("addItemModal").style.display = "none";
-}
-
-// Function to remove an item
-function removeItem(id) {
-    inventory = inventory.filter(item => item.id !== id);
-    renderInventory();
-}
-// Render the initial inventory
-renderInventory();
-</script>
 </html>

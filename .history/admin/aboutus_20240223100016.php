@@ -45,13 +45,13 @@ session_start();
                     <div class="main-nav d-lg-block">
                         <nav class="site-navigation text-right text-md-center" role="navigation">
                             <ul class="site-menu js-clone-nav d-lg-block">
-                                <li class=""><a href="home.php">Home</a></li>
+                                <li class="active"><a href="home.php">Home</a></li>
                                 
                                 <li><a href="inventory.php">Inventory</a></li>
                                 <li class=""><a href="statistics.php">Check Stats</a></li>
                                 <li class=""><a href="presc.php">Validate Prescriptions</a></li>
                                 
-                                <li class="active"><a href="aboutus.php">About</a></li>
+                                <li><a href="aboutus.php">About</a></li>
                             
                             </ul>
                         </nav>

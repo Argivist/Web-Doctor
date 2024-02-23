@@ -23,7 +23,7 @@ session_start();
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8f9fa;
-            
+            padding: 20px;
         }
         .prescription-container {
             max-width: 900px;
@@ -179,13 +179,34 @@ session_start();
 
         <!--Main Content-->
         <!--Image By: Photo by Alex Green: https://www.pexels.com/photo/pile-of-white-spilled-pills-5699514/-->
-        <div class="site-blocks-cover"
-        >
+        <div class="site-blocks-cover" style="background-image: url('../img/background/pharmacy_1.jpg');">
       <div class="container">
         <div class="row">
           <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
             <div class="site-block-cover-content text-center">
-            <div class="container prescription-container">
+              <h2 class="sub-title">Convinienct Pharmaceutical Management</h2>
+              <h1>Welcome To The Web Doctor</h1>
+              <p>
+                <a href="
+                        inventory.php
+                        " class="btn btn-primary px-5 py-3">OPEN INVENTORY</a>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</body>
+
+</html>    <div class="bg-light py-3">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-12 mb-0"><a href="pharmacy.html">Home</a> <span class="mx-2 mb-0">/</span> <strong class="text-black">Prescription</strong></div>
+            </div>
+          </div>
+        </div>
+
+    <div class="container prescription-container">
         <div class="row">
             <div class="col-lg-6">
                 <div class="prescription">
@@ -289,13 +310,73 @@ session_start();
             </div>
         </div>
     </div>
+
+    <div class="site-section bg-secondary bg-image" style="background-image: url('images/bg_2.jpg');">
+        <div class="container">
+          <div class="row align-items-stretch">
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <a href="#" class="banner-1 h-100 d-flex" style="background-image: url('images/bg_1.jpg');">
+                <div class="banner-1-inner align-self-center">
+                  <h2>The Pharmacy Products</h2>
+                  <p>Find your products here.
+                  </p>
+                </div>
+              </a>
+            </div>
+            <div class="col-lg-6 mb-5 mb-lg-0">
+              <a href="#" class="banner-1 h-100 d-flex" style="background-image: url('images/bg_2.jpg');">
+                <div class="banner-1-inner ml-auto  align-self-center">
+                  <h2>Rated by Experts</h2>
+                  <p>You can trust us, we got your back.
+                  </p>
+                </div>
+              </a>
             </div>
           </div>
         </div>
       </div>
-    </div>
-</body>
-<script src="js/jquery-3.3.1.min.js"></script>
+    
+      <footer class="site-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+    
+              <div class="block-7">
+                <h3 class="footer-heading mb-4">About Us</h3>
+                <p>We aim to solve the problem of access to information and streamline the pharmaceutical supply chain by providing a 
+                  comprehensive online platform. This platform will cater to pharmacies, pharmaceutical businesses, and individual consumers, 
+                  offering them a range of features to meet their needs</p>
+              </div>
+    
+            </div>
+            <div class="col-lg-3 mx-auto mb-5 mb-lg-0">
+              <h3 class="footer-heading mb-4">Quick Links</h3>
+              <ul class="list-unstyled">
+                <li><a href="#">Supplements</a></li>
+                <li><a href="#">Vitamins</a></li>
+                <li><a href="#">Diet &amp; Nutrition</a></li>
+                <li><a href="#">Tea &amp; Coffee</a></li>
+              </ul>
+            </div>
+    
+            <div class="col-md-6 col-lg-3">
+              <div class="block-5 mb-5">
+                <h3 class="footer-heading mb-4">Contact Info</h3>
+                <ul class="list-unstyled">
+                  <li class="address">1 University Avenue Berekuso</li>
+                  <li class="phone"><a href="tel://23923929210">+233 54992328</a></li>
+                  <li class="email">priscile.nzonbi@ashesi.edu.gh</li>
+                </ul>
+              </div>
+    
+    
+            </div>
+          </div>
+    
+        </div>
+      </footer>
+    
+      <script src="js/jquery-3.3.1.min.js"></script>
       <script src="js/jquery-ui.js"></script>
       <script src="js/popper.min.js"></script>
       <script src="js/bootstrap.min.js"></script>
@@ -358,4 +439,5 @@ session_start();
             }
         });
     </script>
+</body>
 </html>
