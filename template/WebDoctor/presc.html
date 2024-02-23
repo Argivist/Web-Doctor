@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription Validation</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .prescription-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .prescription {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+        .prescription img {
+            max-width: 100%;
+        }
+        .reason-modal .modal-dialog {
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="prescription-container">
+        <div class="prescription">
+            <h3>Prescription for John Doe</h3>
+            <img src="prescription1.jpg" alt="Prescription">
+            <button class="btn btn-primary validate-button" data-product-name="Bioderma">Validate Prescription</button>
+            <button class="btn btn-success view-profile-button" data-toggle="modal" data-target="#profileModal" data-name="John Doe" data-age="35">View Buyer Profile</button>
+            <button class="btn btn-danger reject-button" data-toggle="modal" data-target="#reasonModal" data-product-name="Bioderma">Reject Prescription</button>
+        </div>
+        <div class="prescription">
+            <h3>Prescription for Alice Smith</h3>
+            <img src="prescription2.jpg" alt="Prescription">
+            <button class="btn btn-primary validate-button" data-product-name="Chanca Piedra">Validate Prescription</button>
+            <button class="btn btn-success view-profile-button" data-toggle="modal" data-target="#profileModal" data-name="Alice Smith" data-age="22">View Buyer Profile</button>
+            <button class="btn btn-danger reject-button" data-toggle="modal" data-target="#reasonModal" data-product-name="Chanca Piedra">Reject Prescription</button>
+        </div>
+        <div class="prescription">
+            <h3>Prescription for Bob Johnson</h3>
+            <img src="prescription3.jpg" alt="Prescription">
+            <button class="btn btn-primary validate-button" data-product-name="Umcka Cold Care">Validate Prescription</button>
+            <button class="btn btn-success view-profile-button" data-toggle="modal" data-target="#profileModal" data-name="Bob Johnson" data-age="40">View Buyer Profile</button>
+            <button class="btn btn-danger reject-button" data-toggle="modal" data-target="#reasonModal" data-product-name="Umcka Cold Care">Reject Prescription</button>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileModalLabel">Buyer Profile</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>Name: <span id="buyerName"></span></p>
+                    <p>Age: <span id="buyerAge"></span></p>
+                    <p>Adult: <span id="isAdult"></span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Reason Modal -->
+    <div class="modal fade reason-modal" id="reasonModal" tabindex="-1" role="dialog" aria-labelledby="reasonModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="reasonModalLabel">Provide Reason for Rejection</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <textarea class="form-control rejection-reason" rows="4"></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary submit-rejection">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Handle click on view profile button
+            $('.view-profile-button').click(function() {
+                var buyerName = $(this).data('name');
+                var buyerAge = $(this).data('age');
+                $('#buyerName').text(buyerName);
+                $('#buyerAge').text(buyerAge);
+                $('#isAdult').text(buyerAge >= 18 ? "Yes" : "No");
+            });
+
+            // Handle click on validate button
+            $('.validate-button').click(function() {
+                var productName = $(this).data('product-name');
+                validatePrescription(productName);
+            });
+
+            // Handle click on reject button
+            $('.reject-button').click(function() {
+                var productName = $(this).data('product-name');
+                $('.rejection-reason').data('product-name', productName);
+            });
+
+            // Handle click on submit rejection button
+            $('.submit-rejection').click(function() {
+                var productName = $('.rejection-reason').data('product-name');
+                var rejectionReason = $('.rejection-reason').val();
+                rejectPrescription(productName, rejectionReason);
+                $('#reasonModal').modal('hide');
+            });
+
+            // Function to validate prescription
+            function validatePrescription(productName) {
+                // Dummy validation logic (replace with actual validation)
+                alert(`Prescription for ${productName} validated successfully!`);
+            }
+
+            // Function to reject prescription
+            function rejectPrescription(productName, rejectionReason) {
+                // Send AJAX request to reject prescription
+                alert(`Prescription for ${productName} rejected for reason: ${rejectionReason}`);
+                // You may want to update the UI to reflect rejection reason
+            }
+        });
+    </script>
+</body>
+</html>

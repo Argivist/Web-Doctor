@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prescription Validation</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+        .prescription-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .prescription {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+        .prescription img {
+            max-width: 100%;
+        }
+        .reason-modal .modal-dialog {
+            max-width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <div class="prescription-container">
+        <!-- Prescriptions will be dynamically loaded here -->
+    </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Load prescriptions from database
+            $.ajax({
+                url: 'get_prescriptions.php',
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+                    // Iterate over prescriptions and append to container
+                    data.forEach(function(prescription) {
+                        var prescriptionHtml = `
+                            <div class="prescription">
+                                <h3>Prescription for ${prescription.buyerName}</h3>
+                                <img src="${prescription.prescriptionImage}" alt="Prescription">
+                                <button class="btn btn-primary validate-button" data-product-name="${prescription.productName}">Validate Prescription</button>
+                                <button class="btn btn-danger reject-button" data-toggle="modal" data-target="#reasonModal" data-product-name="${prescription.productName}">Reject Prescription</button>
+                            </div>
+                        `;
+                        $('.prescription-container').append(prescriptionHtml);
+                    });
+                },
+                error: function(xhr, status, error) {
+                    console.error(error);
+                }
+            });
+
+            // Handle click on validate button
+            $('.validate-button').click(function() {
+                var productName = $(this).data('product-name');
+                validatePrescription(productName);
+            });
+
+            // Handle click on reject button
+            $('.reject-button').click(function() {
+                var productName = $(this).data('product-name');
+                $('#reasonModal').data('product-name', productName);
+            });
+
+            // Handle click on submit rejection button
+            $('.submit-rejection').click(function() {
+                var productName = $('#reasonModal').data('product-name');
+                var rejectionReason = $('.rejection-reason').val();
+                rejectPrescription(productName, rejectionReason);
+                $('#reasonModal').modal('hide');
+            });
+
+            // Function to validate prescription
+            function validatePrescription(productName) {
+                // Dummy validation logic (replace with actual validation)
+                alert(`Prescription for ${productName} validated successfully!`);
+            }
+
+            // Function to reject prescription
+            function rejectPrescription(productName, rejectionReason) {
+                // Dummy rejection logic (replace with actual rejection)
+                alert(`Prescription for ${productName} rejected for reason: ${rejectionReason}`);
+            }
+        });
+    </script>
+</body>
+</html>
