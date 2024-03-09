@@ -107,7 +107,7 @@ if (!isset($_SESSION['id'])) {
 
 
             <form action="../actions/add_to_cart.php" method="post">
-              <input type="text" name="mid" value="<?php echo $_GET['mid'] ?>" hidden>
+              <input type="text" name="mid" value="<?php echo $_GET['id'] ?>" hidden>
               <input type="text" name="pid" value="<?php echo $_SESSION['id'] ?>" hidden>
               <input type="text" name="price" value="<?php echo $_GET['price'] ?>" hidden>
               <div class="mb-5">

@@ -2,15 +2,15 @@
 include "../settings/connection.php";
 session_start();
 if (!isset($_SESSION['id'])) {
-  header("Location: ../login/login.php");
+    header("Location: ../login/login.php");
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
-  <title><?php echo $_GET['name'] ?></title>
-  <link rel="icon" href="../img/logo/logo.png" />
+  <title><?php echo $_GET['name']?></title>
+  <link rel="icon" href="../img/logo/logo.png"/>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -49,7 +49,7 @@ if (!isset($_SESSION['id'])) {
                 <li class="active"><a href="shop.php">Store</a></li>
                 <li class=""><a href="prescription.php">Prescription</a></li>
                 <li><a href="aboutus.php">About</a></li>
-
+              
               </ul>
             </nav>
           </div>
@@ -85,7 +85,8 @@ if (!isset($_SESSION['id'])) {
     <div class="bg-light py-3">
       <div class="container">
         <div class="row">
-          <div class="col-md-12 mb-0"><a href="home.php">Home</a> <span class="mx-2 mb-0">/</span> <a href="shop.php">Store</a> <span class="mx-2 mb-0">/</span> <strong class="text-black"><?php echo $_GET['name'] ?></strong></div>
+          <div class="col-md-12 mb-0"><a href="home.php">Home</a> <span class="mx-2 mb-0">/</span> <a
+              href="shop.php">Store</a> <span class="mx-2 mb-0">/</span> <strong class="text-black"><?php echo $_GET['name']?></strong></div>
         </div>
       </div>
     </div>
@@ -95,61 +96,57 @@ if (!isset($_SESSION['id'])) {
         <div class="row">
           <div class="col-md-5 mr-auto">
             <div class="border text-center">
-              <img src="<?php echo $_GET['url'] ?>" alt="Image" class="img-fluid p-5">
+              <img src="<?php echo $_GET['url']?>" alt="Image" class="img-fluid p-5">
             </div>
           </div>
           <div class="col-md-6">
-            <h2 class="text-black"><?php echo $_GET['name'] ?></h2>
-            <p><?php echo $_GET['desc'] ?></p>
+            <h2 class="text-black"><?php echo $_GET['name']?></h2>
+            <p><?php echo $_GET['desc']?></p>
+            
 
+            <p><del>200.00 cedis</del>  <strong class="text-primary h4"> <?php echo $_GET['price']?> cedis</strong></p>
 
-            <p><del>200.00 cedis</del> <strong class="text-primary h4"> <?php echo $_GET['price'] ?> cedis</strong></p>
-
-
-            <form action="../actions/add_to_cart.php" method="post">
-              <input type="text" name="mid" value="<?php echo $_GET['mid'] ?>" hidden>
-              <input type="text" name="pid" value="<?php echo $_SESSION['id'] ?>" hidden>
-              <input type="text" name="price" value="<?php echo $_GET['price'] ?>" hidden>
-              <div class="mb-5">
-                <div class="input-group mb-3" style="max-width: 220px;">
-                  <div class="input-group-prepend">
-                    <button class="btn btn-outline-primary js-btn-minus" type="button" id="subtract">&minus;</button>
-                  </div>
-                  <input type="text" class="form-control text-center" id="qty" name="qty" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                  <div class="input-group-append">
-                    <button class="btn btn-outline-primary js-btn-plus" type="button" id="add">&plus;</button>
-                  </div>
+            
+            
+            <div class="mb-5">
+              <div class="input-group mb-3" style="max-width: 220px;">
+                <div class="input-group-prepend">
+                  <button class="btn btn-outline-primary js-btn-minus" type="button" id="subtract">&minus;</button>
                 </div>
-                <script>
-                  var add = document.getElementById("add");
-                  var sub = document.getElementById("subtract");
-                  var number = document.getElementById("qty");
-
-                  add.addEventListener('click', () => {
-                    number.value = parseInt(number.value) + 1;
-                  });
-                  sub.addEventListener('click', () => {
-                    if (number.value > 0) {
-                      number.value = parseInt(number.value) - 1;
-                    } else {
-                      // sub.disabled=true;
-                    }
-                  });
-                </script>
+                <input type="text" class="form-control text-center" id="qty" name="qty" value="1" placeholder=""
+                  aria-label="Example text with button addon" aria-describedby="button-addon1">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-primary js-btn-plus" type="button" id="add">&plus;</button>
+                </div>
               </div>
-              <p>
-              <button  class="buy-now buy-button btn btn-sm height-auto px-4 py-3 btn-primary" id="addCart">Add To Cart</button>
-              </p>
-            </form>
+    <script>
+      var add=document.getElementById("add");
+      var sub=document.getElementById("subtract");
+      var number=document.getElementById("qty");
+
+      add.addEventListener(()=>{
+        number.value+=1;
+      });
+      sub.addEventListener(()=>{
+        if(number.value>0){number.value-=1;}else{
+          sub.disabled=true;
+        }
+      });
+    </script>
+            </div>
+            <p><p class="buy-now buy-button btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</p></p>
+          
             <div class="mt-5">
               <ul class="nav nav-pills mb-3 custom-pill" id="pills-tab" role="tablist">
                 <li class="nav-item">
-                  <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true">Ordering Information</a>
+                  <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab"
+                    aria-controls="pills-home" aria-selected="true">Ordering Information</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Specifications</a>
+                  <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab"
+                    aria-controls="pills-profile" aria-selected="false">Specifications</a>
                 </li>
-
+            
               </ul>
               <div class="tab-content" id="pills-tabContent">
                 <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
@@ -175,14 +172,14 @@ if (!isset($_SESSION['id'])) {
                         <td>Pain Management: Acetaminophen PM Extra-Strength Caplets, 500 mg, 100/Bottle</td>
                         <td>1 EA</td>
                       </tr>
-
+                      
                     </tbody>
                   </table>
                 </div>
                 <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-
+            
                   <table class="table custom-table">
-
+            
                     <tbody>
                       <tr>
                         <td>HPIS CODE</td>
@@ -202,13 +199,13 @@ if (!isset($_SESSION['id'])) {
                       </tr>
                     </tbody>
                   </table>
-
+            
                 </div>
-
+            
               </div>
             </div>
 
-
+    
           </div>
         </div>
       </div>
@@ -247,8 +244,8 @@ if (!isset($_SESSION['id'])) {
 
             <div class="block-7">
               <h3 class="footer-heading mb-4">About Us</h3>
-              <p>We aim to solve the problem of access to information and streamline the pharmaceutical supply chain by providing a
-                comprehensive online platform. This platform will cater to pharmacies, pharmaceutical businesses, and individual consumers,
+              <p>We aim to solve the problem of access to information and streamline the pharmaceutical supply chain by providing a 
+                comprehensive online platform. This platform will cater to pharmacies, pharmaceutical businesses, and individual consumers, 
                 offering them a range of features to meet their needs</p>
             </div>
 
@@ -293,40 +290,39 @@ if (!isset($_SESSION['id'])) {
 </body>
 
 <script>
-  $(document).ready(function() {
-    $('.buy-button').click(function() {
-      var drugName = $(this).attr('data-drug');
-      var prescriptionRequired = $(this).attr('data-prescription-required') === 'true';
+    $(document).ready(function() {
+      $('.buy-button').click(function() {
+        var drugName = $(this).attr('data-drug');
+        var prescriptionRequired = $(this).attr('data-prescription-required') === 'true';
 
-      if (prescriptionRequired) {
-        // Display popup for prescription upload
-        var popupContent = '<div>Prescription is required for ' + drugName + '. Please upload a prescription.</div>';
-        popupContent += '<input type="file" class="prescription">';
-        popupContent += '<button class="btn btn-primary upload-prescription">Upload Prescription</button>';
-        $.magnificPopup.open({
-          items: {
-            src: '<div class="white-popup">' + popupContent + '</div>',
-            type: 'inline'
-          }
-        });
+        if (prescriptionRequired) {
+          // Display popup for prescription upload
+          var popupContent = '<div>Prescription is required for ' + drugName + '. Please upload a prescription.</div>';
+          popupContent += '<input type="file" class="prescription">';
+          popupContent += '<button class="btn btn-primary upload-prescription">Upload Prescription</button>';
+          $.magnificPopup.open({
+            items: {
+              src: '<div class="white-popup">' + popupContent + '</div>',
+              type: 'inline'
+            }
+          });
 
-        // Process the purchase after prescription validation
-        $('.upload-prescription').click(function() {
-          var uploadedPrescription = $('.prescription').prop('files')[0];
-          if (uploadedPrescription) {
-            alert('Prescription uploaded for ' + drugName + '. It will take some time while we validate the prescription.');
-            // Close the popup after processing
-            $.magnificPopup.close();
-          } else {
-            alert('Please upload a prescription.');
-          }
-        });
-      } else {
-        // Process the purchase
-        alert('Processing purchase of ' + drugName + '...');
-      }
+          // Process the purchase after prescription validation
+          $('.upload-prescription').click(function() {
+            var uploadedPrescription = $('.prescription').prop('files')[0];
+            if (uploadedPrescription) {
+              alert('Prescription uploaded for ' + drugName + '. It will take some time while we validate the prescription.');
+              // Close the popup after processing
+              $.magnificPopup.close();
+            } else {
+              alert('Please upload a prescription.');
+            }
+          });
+        } else {
+          // Process the purchase
+          alert('Processing purchase of ' + drugName + '...');
+        }
+      });
     });
-  });
-</script>
-
+  </script>
 </html>

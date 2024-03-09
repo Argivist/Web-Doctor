@@ -4,7 +4,7 @@ include "../actions/get_all_medicines.php";
 
 function displayChores($cid,$url,$med_name,$medicine_qty,$medicine_price,$desc){
     $medicine="  <div class='col-sm-6 col-lg-4 text-center item mb-4'>
-    <a href='shop-single.php?mid=".$cid."&url=".$url."&name=".$med_name."&price=".$medicine_price."&desc=".$desc."'> <img src='".$url."' alt='Image'></a>
+    <a href='shop-single.php?mid=".$cid."?url=".$url."&name=".$med_name."&price=".$medicine_price."&desc=".$desc."'> <img src='".$url."' alt='Image'></a>
     <h3 class='text-dark'><a href='shop-single.php?url=".$url."&name=".$med_name."&desc=".$desc."'>".$med_name."</a></h3>
     <p class='price'><del>95.00</del> &mdash;".$medicine_price." cedis</p>
     <p class='inventory'>Inventory: ".$medicine_qty."</p>

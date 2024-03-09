@@ -106,41 +106,41 @@ if (!isset($_SESSION['id'])) {
             <p><del>200.00 cedis</del> <strong class="text-primary h4"> <?php echo $_GET['price'] ?> cedis</strong></p>
 
 
-            <form action="../actions/add_to_cart.php" method="post">
-              <input type="text" name="mid" value="<?php echo $_GET['mid'] ?>" hidden>
-              <input type="text" name="pid" value="<?php echo $_SESSION['id'] ?>" hidden>
-              <input type="text" name="price" value="<?php echo $_GET['price'] ?>" hidden>
-              <div class="mb-5">
-                <div class="input-group mb-3" style="max-width: 220px;">
-                  <div class="input-group-prepend">
-                    <button class="btn btn-outline-primary js-btn-minus" type="button" id="subtract">&minus;</button>
-                  </div>
-                  <input type="text" class="form-control text-center" id="qty" name="qty" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-                  <div class="input-group-append">
-                    <button class="btn btn-outline-primary js-btn-plus" type="button" id="add">&plus;</button>
-                  </div>
+<form action="../actions/add_to_cart.php" method="post">
+  <input type="hidden" name="medicine_id" value="<?php echo $_GET['id'] ?>">
+  <input type="hidden" name="p_id" value="<?php echo $_SESSION['id'] ?>">
+  <input type="hidden" name="price" value="<?php echo $_GET['price'] ?>"> 
+            <div class="mb-5">
+              <div class="input-group mb-3" style="max-width: 220px;">
+                <div class="input-group-prepend">
+                  <button class="btn btn-outline-primary js-btn-minus" type="button" id="subtract">&minus;</button>
                 </div>
-                <script>
-                  var add = document.getElementById("add");
-                  var sub = document.getElementById("subtract");
-                  var number = document.getElementById("qty");
-
-                  add.addEventListener('click', () => {
-                    number.value = parseInt(number.value) + 1;
-                  });
-                  sub.addEventListener('click', () => {
-                    if (number.value > 0) {
-                      number.value = parseInt(number.value) - 1;
-                    } else {
-                      // sub.disabled=true;
-                    }
-                  });
-                </script>
+                <input type="text" class="form-control text-center" id="qty" name="qty" value="1" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                <div class="input-group-append">
+                  <button class="btn btn-outline-primary js-btn-plus" type="button" id="add">&plus;</button>
+                </div>
               </div>
-              <p>
-              <button  class="buy-now buy-button btn btn-sm height-auto px-4 py-3 btn-primary" id="addCart">Add To Cart</button>
-              </p>
-            </form>
+              <script>
+                var add = document.getElementById("add");
+                var sub = document.getElementById("subtract");
+                var number = document.getElementById("qty");
+
+                add.addEventListener('click', () => {
+                  number.value = parseInt(number.value) + 1;
+                });
+                sub.addEventListener('click', () => {
+                  if (number.value > 0) {
+                    number.value = parseInt(number.value) - 1;
+                  } else {
+                    // sub.disabled=true;
+                  }
+                });
+              </script>
+            </div>
+            <p>
+            <p class="buy-now buy-button btn btn-sm height-auto px-4 py-3 btn-primary" id="addCart">Add To Cart</p>
+            </p>
+              </form>
             <div class="mt-5">
               <ul class="nav nav-pills mb-3 custom-pill" id="pills-tab" role="tablist">
                 <li class="nav-item">
