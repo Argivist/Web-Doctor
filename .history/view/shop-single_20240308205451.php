@@ -121,8 +121,8 @@ if (!isset($_SESSION['id'])) {
               </div>
     
             </div>
-            <p><p class="buy-now buy-button btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</p></p>
-          
+            <p><a href="" class="buy-now buy-button btn btn-sm height-auto px-4 py-3 btn-primary">Add To Cart</a></p>
+
             <div class="mt-5">
               <ul class="nav nav-pills mb-3 custom-pill" id="pills-tab" role="tablist">
                 <li class="nav-item">
