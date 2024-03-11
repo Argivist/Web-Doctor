@@ -157,10 +157,10 @@ session_start();
 <script>
   // Sample data for the charts
   const weeklySalesData = {
-    labels: <?php include "../actions/get_weekly_sales.php"; echo $weeks; ?>,
+    labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
     datasets: [{
       label: 'Weekly Sales',
-      data: <?php include "../actions/get_weekly_sales.php"; echo $sales; ?>,
+      data: [3000, 3500, 2800, 4000],
       borderColor: '#4CAF50',
       backgroundColor: 'rgba(76, 175, 80, 0.2)',
       borderWidth: 2,
@@ -189,10 +189,10 @@ session_start();
   };
 
   const topSellingDrugsData = {
-    labels:<?php include "../actions/get_weekly_sales.php"; echo $meds; ?>,
+    labels: ['Drug A', 'Drug B', 'Drug C', 'Drug D', 'Drug E'],
     datasets: [{
       label: 'Top Selling Drugs',
-      data: <?php include "../actions/get_weekly_sales.php"; echo $med_sales; ?>,
+      data: [25, 20, 15, 10, 5],
       backgroundColor: [
         'rgba(255, 99, 132, 0.6)',
         'rgba(54, 162, 235, 0.6)',

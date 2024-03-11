@@ -189,10 +189,10 @@ session_start();
   };
 
   const topSellingDrugsData = {
-    labels:<?php include "../actions/get_weekly_sales.php"; echo $meds; ?>,
+    labels: ['Drug A', 'Drug B', 'Drug C', 'Drug D', 'Drug E'],
     datasets: [{
       label: 'Top Selling Drugs',
-      data: <?php include "../actions/get_weekly_sales.php"; echo $med_sales; ?>,
+      data: [25, 20, 15, 10, 5],
       backgroundColor: [
         'rgba(255, 99, 132, 0.6)',
         'rgba(54, 162, 235, 0.6)',
