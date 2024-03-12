@@ -95,43 +95,90 @@ session_start();
             </div>
         </div>
 
-    
-        <div class="container">
-        <div class="site-blocks-table">
-        <h2 style="text-align:center;">Inventory Management System</h2>
-              <center><button class="btn" onclick="addItem()">Add New Item</button></center>
-              <table class="table table-bordered" id="inventoryTable">
-                <thead>
-                  <tr>
-                    <th class="product-thumbnail">Product ID</th>
-                    <th class="product-name">Product</th>
-                    <th class="product-quantity">Quantity</th>
-                    <th class="product-remove">Action</th>
-                  </tr>
-                </thead>
-                <tbody id="inventoryBody">
-                 
-                  <!-- popup -->
-                  <div id="addItemModal" style="display: none;">
+        <div class="site-blocks-cover">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
+                        <div class="site-block-cover-content text-center" style="backdrop-filter:blur(20px); background:rgba(22,230,255,0.5); padding:20px; border-radius:10px;">
+                            <h2>Inventory Management System</h2>
+                            <button class="btn" onclick="addItem()">Add New Item</button>
+                            <table id="inventoryTable">
+                                <thead>
+                                    <tr>
+                                        <th>Product ID</th>
+                                        <th>Product Name</th>
+                                        <th>Quantity</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="inventoryBody">
+                                    <!-- Inventory items will be dynamically added here -->
+                                </tbody>
+                            </table>
+
+                            <!-- Modal for adding new item -->
+                            <div id="addItemModal" style="display: none;">
                                 <input type="text" id="productId" placeholder="Product ID"><br>
                                 <input type="text" id="productName" placeholder="Product Name"><br>
                                 <input type="number" id="quantity" placeholder="Quantity"><br>
                                 <button class="btn" onclick="saveItem()">Save</button>
                                 <button class="btn" onclick="cancelAddItem()">Cancel</button>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+        <div class="site-blocks-table">
+              <table class="table table-bordered">
+                <thead>
+                  <tr>
+                    <th class="product-thumbnail">Image</th>
+                    <th class="product-name">Product</th>
+                    <th class="product-price">Price</th>
+                    <th class="product-quantity">Quantity</th>
+                    <th class="product-total">Total</th>
+                    <th class="product-remove">Remove</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
+                //   include '../actions/get_cart.php';
+                //   include '../functions/list_cart.php';
+                //   $cart = getCart();
+
+                //   $count = 0;
+                //   foreach ($cart as $item) {
+                //     echo displayCart($item['med_id'], $item['img_url'], $item['medicine_name'], $item['qty'], $item['medicine_price'], $item['total_cost']);
+                //   }
+
+                  ?>
+                  <!-- list items -->
                 </tbody>
               </table>
             </div>
         </div>
-        
 </body>
 
 <script>
     // Sample inventory data
-    let inventory = <?php 
-        include '../functions/inventory_list.php';
-        invList();
-        ?>;
+    let inventory = [{
+            id: 1,
+            name: "Product A",
+            quantity: 10
+        },
+        {
+            id: 2,
+            name: "Product B",
+            quantity: 20
+        },
+        {
+            id: 3,
+            name: "Product C",
+            quantity: 15
+        }
+    ];
     // Function to render inventory table
     function renderInventory() {
         const tbody = document.getElementById("inventoryBody");
@@ -142,7 +189,7 @@ session_start();
             <td>${item.id}</td>
             <td>${item.name}</td>
             <td>${item.quantity}</td>
-            <td><button class="btn" name="mid" value="${item.mid}"onclick="removeItem(${item.id})">Remove</button></td>
+            <td><button class="btn" onclick="removeItem(${item.id})">Remove</button></td>
         `;
             tbody.appendChild(tr);
         });

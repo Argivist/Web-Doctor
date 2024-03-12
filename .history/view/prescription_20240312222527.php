@@ -174,7 +174,7 @@ if (!isset($_SESSION['id'])) {
         <!-- Validated Prescriptions -->
         <div class="site-blocks-table">
           <table class="table table-bordered">
-            <h2 class="text-center h5" color="grey">Valid</h2>
+            <h2 class="text-center" color="grey">Valid</h2>
             <thead>
               <tr>
                 <th class="product-thumbnail">Image</th>
@@ -203,7 +203,7 @@ if (!isset($_SESSION['id'])) {
         <!-- Pending -->
         <div class="site-blocks-table">
           <table class="table table-bordered">
-            <h2 class="h5 text-center" color="grey">Pending</h2>
+            <h2 class="text-center" color="grey">Pending</h2>
             <thead>
               <tr>
                 <th class="product-thumbnail">Image</th>

@@ -174,7 +174,7 @@ if (!isset($_SESSION['id'])) {
         <!-- Validated Prescriptions -->
         <div class="site-blocks-table">
           <table class="table table-bordered">
-            <h2 class="text-center h5" color="grey">Valid</h2>
+            <h2 class="text-center" color="grey">Valid</h2>
             <thead>
               <tr>
                 <th class="product-thumbnail">Image</th>
@@ -191,7 +191,7 @@ if (!isset($_SESSION['id'])) {
               $count = 0;
               foreach ($cart as $item) {
                 if ($item['approved'] == 1) {
-                  echo displayPresc($item['medicine_id'], $item['img_url'], $item['medicine_name'], $item['qty'], $item['desc'],$item['medicine_price']);
+                  echo displayPresc($item['med_id'], $item['img_url'], $item['medicine_name'], $item['qty']);
                 }
               }
 
@@ -200,34 +200,32 @@ if (!isset($_SESSION['id'])) {
             </tbody>
           </table>
         </div>
-        <!-- Pending -->
-        <div class="site-blocks-table">
-          <table class="table table-bordered">
-            <h2 class="h5 text-center" color="grey">Pending</h2>
-            <thead>
-              <tr>
-                <th class="product-thumbnail">Image</th>
-                <th class="product-name">Medication</th>
-                <th class="product-quantity">Quantity</th>
-              </tr>
-            </thead>
-            <tbody>
-              <?php
-
-
-              $count = 0;
-              foreach ($cart as $item) {
-                if ($item['approved'] == 0) {
+<!-- Pending -->
+<table class="table table-bordered">
+                <h2 class="text-center" color="grey">Pending</h2>
+                <thead>
+                  <tr>
+                    <th class="product-thumbnail">Image</th>
+                    <th class="product-name">Medication</th>
+                    <th class="product-quantity">Quantity</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php
                   
-                  echo displayPresc($item['medicine_id'], $item['img_url'], $item['medicine_name'], $item['qty'], $item['desc'],$item['medicine_price']);
-                }
-              }
 
-              ?>
-              <!-- list items -->
-            </tbody>
-          </table>
-        </div>
+                  $count = 0;
+                  foreach ($cart as $item) {
+                    if($item['approved']==0){
+                    echo displayPresc($item['med_id'], $item['img_url'], $item['medicine_name'], $item['qty']);
+                      }
+                      }
+
+                  ?>
+                  <!-- list items -->
+                </tbody>
+              </table>
+
       </div>
 
       <!-- footer -->

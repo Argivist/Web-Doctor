@@ -173,11 +173,11 @@ session_start();
   };
 
   const customerTrendData = {
-    
-    labels: ['pending', 'approved', 'denied'],
+    <?php include '../actions/get_prescription_approved_count.php'?>
+    labels: ['denied', 'approved','pending'],
     datasets: [{
       label: 'Customer Trend',
-      data: <?php include '../actions/get_prescription_approved_count.php'; echo $count;?>,
+      data: <?php echo $count?>,
       borderColor: '#2196F3',
       backgroundColor: 'rgba(33, 150, 243, 0.2)',
       borderWidth: 2,
@@ -237,7 +237,7 @@ session_start();
   };
 
   const customerTrendConfig = {
-    type: 'bar',
+    type: 'line',
     data: customerTrendData,
     options: {
       scales: {

@@ -95,11 +95,37 @@ session_start();
             </div>
         </div>
 
-    
+        <div class="site-blocks-cover">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
+                        <div class="site-block-cover-content text-center" style="backdrop-filter:blur(20px); background:rgba(22,230,255,0.5); padding:20px; border-radius:10px;">
+                            
+                            <!-- <table id="inventoryTable">
+                                <thead>
+                                    <tr>
+                                        <th>Product ID</th>
+                                        <th>Product Name</th>
+                                        <th>Quantity</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="inventoryBody">
+                                    <!-- Inventory items will be dynamically added here -->
+                                </tbody>
+                            </table> -->
+
+                            <!-- Modal for adding new item -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="container">
         <div class="site-blocks-table">
-        <h2 style="text-align:center;">Inventory Management System</h2>
-              <center><button class="btn" onclick="addItem()">Add New Item</button></center>
+        <h2>Inventory Management System</h2>
+                            <button class="btn" onclick="addItem()">Add New Item</button>
               <table class="table table-bordered" id="inventoryTable">
                 <thead>
                   <tr>
@@ -123,15 +149,26 @@ session_start();
               </table>
             </div>
         </div>
-        
 </body>
 
 <script>
     // Sample inventory data
-    let inventory = <?php 
-        include '../functions/inventory_list.php';
-        invList();
-        ?>;
+    let inventory = [{
+            id: 1,
+            name: "Product A",
+            quantity: 10
+        },
+        {
+            id: 2,
+            name: "Product B",
+            quantity: 20
+        },
+        {
+            id: 3,
+            name: "Product C",
+            quantity: 15
+        }
+    ];
     // Function to render inventory table
     function renderInventory() {
         const tbody = document.getElementById("inventoryBody");
@@ -142,7 +179,7 @@ session_start();
             <td>${item.id}</td>
             <td>${item.name}</td>
             <td>${item.quantity}</td>
-            <td><button class="btn" name="mid" value="${item.mid}"onclick="removeItem(${item.id})">Remove</button></td>
+            <td><button class="btn" onclick="removeItem(${item.id})">Remove</button></td>
         `;
             tbody.appendChild(tr);
         });

@@ -123,15 +123,26 @@ session_start();
               </table>
             </div>
         </div>
-        
 </body>
 
 <script>
     // Sample inventory data
-    let inventory = <?php 
-        include '../functions/inventory_list.php';
-        invList();
-        ?>;
+    let inventory = [{
+            id: 1,
+            name: "Product A",
+            quantity: 10
+        },
+        {
+            id: 2,
+            name: "Product B",
+            quantity: 20
+        },
+        {
+            id: 3,
+            name: "Product C",
+            quantity: 15
+        }
+    ];
     // Function to render inventory table
     function renderInventory() {
         const tbody = document.getElementById("inventoryBody");
@@ -142,7 +153,7 @@ session_start();
             <td>${item.id}</td>
             <td>${item.name}</td>
             <td>${item.quantity}</td>
-            <td><button class="btn" name="mid" value="${item.mid}"onclick="removeItem(${item.id})">Remove</button></td>
+            <td><button class="btn" onclick="removeItem(${item.id})">Remove</button></td>
         `;
             tbody.appendChild(tr);
         });

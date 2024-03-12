@@ -136,7 +136,7 @@ if (!isset($_SESSION['id'])) {
                     <button class="btn btn-outline-primary js-btn-minus" type="button" id="subtract">&minus;</button>
                   </div>
                   <input type="text" class="form-control text-center" id="qty" name="qty" value="<?php 
-                  if(isset($_GET['qty'])){
+                  if($_GET['qty']){
                     echo $_GET['qty'];
                   }else{
                     echo 1;

@@ -20,7 +20,7 @@ session_start();
     <link rel="stylesheet" href="../css/owl.theme.default.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/aos.css">
-    <!-- <style>
+    <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8f9fa;
@@ -136,18 +136,7 @@ session_start();
             cursor: pointer;
             border-radius: 5px;
         }
-    </style> -->
-    <style>
-        .btn{
-            margin-top:10px;
-        }
-        .safer:hover{
-            border:green solid 3px;
-        }
-        .danger:hover{
-            border:red solid 3px;
-        }
-        </style>
+    </style>
 
 </head>
 

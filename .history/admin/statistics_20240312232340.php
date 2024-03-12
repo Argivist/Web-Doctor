@@ -132,13 +132,13 @@ session_start();
         </div>
 
         <div class="chart-card">
-          <div class="chart-title">Prescription Status</div>
+          <div class="chart-title">Customer Trend</div>
           <canvas id="customerTrendChart" width="400" height="400"></canvas>
         </div>
       </div>
 
       <div class="chart-card">
-        <div class="chart-title">Medication Purchase Distribution</div>
+        <div class="chart-title">Top Selling Drugs</div>
         <canvas id="topSellingDrugsChart" width="800" height="400"></canvas>
       </div>
     </div>
@@ -173,11 +173,11 @@ session_start();
   };
 
   const customerTrendData = {
-    
-    labels: ['pending', 'approved', 'denied'],
+    <?php include '../actions/get_prescription_approved_count.php'?>
+    labels:['denied', 'approved','pending'],
     datasets: [{
       label: 'Customer Trend',
-      data: <?php include '../actions/get_prescription_approved_count.php'; echo $count;?>,
+      data: [50, 55, 48, 60],
       borderColor: '#2196F3',
       backgroundColor: 'rgba(33, 150, 243, 0.2)',
       borderWidth: 2,
@@ -237,7 +237,7 @@ session_start();
   };
 
   const customerTrendConfig = {
-    type: 'bar',
+    type: 'line',
     data: customerTrendData,
     options: {
       scales: {

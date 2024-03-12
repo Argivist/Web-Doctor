@@ -137,17 +137,6 @@ session_start();
             border-radius: 5px;
         }
     </style> -->
-    <style>
-        .btn{
-            margin-top:10px;
-        }
-        .safer:hover{
-            border:green solid 3px;
-        }
-        .danger:hover{
-            border:red solid 3px;
-        }
-        </style>
 
 </head>
 
@@ -324,7 +313,7 @@ session_start();
                 <!-- new list -->
                 <div class="site-blocks-table">
                     <table class="table table-bordered">
-                    
+                        <h2 class="text-center" color="grey">Valid</h2>
                         <thead>
                             <tr>
                                 <th class="product-thumbnail">Image</th>

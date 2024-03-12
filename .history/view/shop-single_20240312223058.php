@@ -136,11 +136,12 @@ if (!isset($_SESSION['id'])) {
                     <button class="btn btn-outline-primary js-btn-minus" type="button" id="subtract">&minus;</button>
                   </div>
                   <input type="text" class="form-control text-center" id="qty" name="qty" value="<?php 
-                  if(isset($_GET['qty'])){
+                  if($_GET['qty']){
                     echo $_GET['qty'];
                   }else{
                     echo 1;
-                  }?>" placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+                  }?>
+                  " placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
                   <div class="input-group-append">
                     <button class="btn btn-outline-primary js-btn-plus" type="button" id="add">&plus;</button>
                   </div>

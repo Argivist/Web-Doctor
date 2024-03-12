@@ -142,7 +142,7 @@ session_start();
             margin-top:10px;
         }
         .safer:hover{
-            border:green solid 3px;
+            border:green solid 1px;
         }
         .danger:hover{
             border:red solid 3px;

@@ -123,15 +123,30 @@ session_start();
               </table>
             </div>
         </div>
-        
+        <?php 
+        include '../functions/inventory_list.php';
+        invList();
+        ?>
 </body>
 
 <script>
     // Sample inventory data
-    let inventory = <?php 
-        include '../functions/inventory_list.php';
-        invList();
-        ?>;
+    let inventory = [{
+            id: 1,
+            name: "Product A",
+            quantity: 10
+        },
+        {
+            id: 2,
+            name: "Product B",
+            quantity: 20
+        },
+        {
+            id: 3,
+            name: "Product C",
+            quantity: 15
+        }
+    ];
     // Function to render inventory table
     function renderInventory() {
         const tbody = document.getElementById("inventoryBody");

@@ -141,12 +141,6 @@ session_start();
         .btn{
             margin-top:10px;
         }
-        .safer:hover{
-            border:green solid 3px;
-        }
-        .danger:hover{
-            border:red solid 3px;
-        }
         </style>
 
 </head>

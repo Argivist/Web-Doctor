@@ -20,7 +20,7 @@ session_start();
     <link rel="stylesheet" href="../css/owl.theme.default.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/aos.css">
-    <!-- <style>
+    <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f8f9fa;
@@ -106,9 +106,9 @@ session_start();
             background-color: #28a745;
         }
 
-        /* .prescription {
+        .prescription {
             margin-top: 10px;
-        } */
+        }
 
         .white-popup {
             background: #fff;
@@ -136,19 +136,7 @@ session_start();
             cursor: pointer;
             border-radius: 5px;
         }
-    </style> -->
-    <style>
-        .btn{
-            margin-top:10px;
-        }
-        .safer:hover{
-            border:green solid 3px;
-        }
-        .danger:hover{
-            border:red solid 3px;
-        }
-        </style>
-
+    </style>
 </head>
 
 <body>
@@ -211,7 +199,7 @@ session_start();
         <div class="site-blocks-cover">
             <div class="container">
                 <!-- has all the actions dont delelte yet -->
-                <!-- <div class="row">
+                <div class="row">
                     <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
                         <div class="site-block-cover-content text-center">
                             <div class="container prescription-container">
@@ -277,7 +265,7 @@ session_start();
                                         </div>
                                     </div>
                                 </div>
-                            </div> -->
+                            </div>
 
                             <!-- Profile Modal -->
                             <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
@@ -299,7 +287,7 @@ session_start();
                             </div>
 
                             <!-- Reason Modal -->
-                            <!-- <div class="modal fade reason-modal" id="reasonModal" tabindex="-1" role="dialog" aria-labelledby="reasonModalLabel" aria-hidden="true">
+                            <div class="modal fade reason-modal" id="reasonModal" tabindex="-1" role="dialog" aria-labelledby="reasonModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -320,35 +308,32 @@ session_start();
                             </div>
                         </div>
                     </div>
-                </div> -->
-                <!-- new list -->
-                <div class="site-blocks-table">
-                    <table class="table table-bordered">
-                    
-                        <thead>
-                            <tr>
-                                <th class="product-thumbnail">Image</th>
-                                <th class="product-name">Medication</th>
-                                <th class="product-quantity">Quantity</th>
-                                <th class="product-price">Action</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php
-                            include '../actions/get_all_presc.php';
-                            include '../functions/list_presc_action.php';
-                            $cart = getPresc();
-
-                            $count = 0;
-                            foreach ($cart as $item) {
-
-                                echo displayPresc($item['medicine_id'], $item['img_url'], $item['medicine_name'], $item['qty'], $item['desc'], $item['medicine_price']);
-                            }
-
-                            ?>
-                        </tbody>
-                        <table>
                 </div>
+                <!-- new list -->
+                <table class="table table-bordered">
+                    <h2 class="text-center" color="grey">Valid</h2>
+                    <thead>
+                        <tr>
+                            <th class="product-thumbnail">Image</th>
+                            <th class="product-name">Medication</th>
+                            <th class="product-quantity">Quantity</th>
+                            <th class="product-price">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php
+                        include '../actions/get_all_presc.php';
+                        include '../functions/list_presc.php';
+                        $cart = getPresc();
+
+                        $count = 0;
+                        foreach ($cart as $item) {
+                            
+                                echo displayPresc($item['medicine_id'], $item['img_url'], $item['medicine_name'], $item['qty'], $item['desc'], $item['medicine_price']);
+                            
+                        }
+
+                        ?>
             </div>
         </div>
 </body>
