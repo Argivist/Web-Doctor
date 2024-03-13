@@ -113,9 +113,9 @@ session_start();
                  
                   <!-- popup -->
                   <div id="addItemModal" style="display: none;">
-                                <input type="text" id="productId" placeholder="Product ID"><br>
-                                <input type="text" id="productName" placeholder="Product Name"><br>
-                                <input type="number" id="quantity" placeholder="Quantity"><br>
+                                <input type="text" id="productId" name="prodID" placeholder="Product ID" hidden><br>
+                                <input type="text" id="productName" name="prodName" placeholder="Product Name"><br>
+                                <input type="number" id="quantity" name = "quantity" placeholder="Quantity"><br>
                                 <button class="btn" onclick="saveItem()">Save</button>
                                 <button class="btn" onclick="cancelAddItem()">Cancel</button>
                             </div>
