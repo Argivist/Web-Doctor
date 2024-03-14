@@ -116,7 +116,7 @@ session_start();
                                 <input type="text" id="productId" name="prodID" placeholder="Product ID" hidden><br>
                                 <input type="text" id="productName" name="prodName" placeholder="Product Name"><br>
                                 <input type="number" id="quantity" name = "quantity" placeholder="Quantity"><br>
-                                <button class="btn" onclick="saveItem()">Save</button>
+                                <button class="btn" name="addBtn" onclick="saveItem()">Save</button>
                                 <button class="btn" onclick="cancelAddItem()">Cancel</button>
                             </div>
                 </tbody>
