@@ -14,6 +14,7 @@
         } else {
             echo "Error; " . mysqli_error($conn);
         }
-    } else {
+    } 
+    else {
         echo "Form submission error.";}
 ?>
