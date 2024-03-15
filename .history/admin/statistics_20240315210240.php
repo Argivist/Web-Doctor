@@ -142,7 +142,16 @@ session_start();
         <canvas id="topSellingDrugsChart" width="800" height="400"></canvas>
       </div>
     </div>
-  
+    <!--Main Content-->
+    <!--Image By: Photo by Alex Green: https://www.pexels.com/photo/pile-of-white-spilled-pills-5699514/-->
+    <div class="site-blocks-cover">
+      <div class="container">
+        <div class="row">
+
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
 
 <script>
@@ -169,14 +178,7 @@ session_start();
       label: 'Customer Trend',
       data: <?php include '../actions/get_prescription_approved_count.php'; echo $count;?>,
       borderColor: '#2196F3',
-      backgroundColor: [
-        //blue
-        'rgba(33, 150, 243, 0.6)',
-        //green
-        'rgba(76, 175, 80, 0.6)',
-        //red
-        'rgba(244, 67, 54, 0.6)' 
-      ],
+      backgroundColor: 'rgba(33, 150, 243, 0.2)',
       borderWidth: 2,
       pointRadius: 5,
       pointBackgroundColor: '#2196F3',
@@ -185,24 +187,35 @@ session_start();
       fill: true
     }]
   };
-var count= <?php include '../actions/get_weekly_sales.php'; echo $count ?>;
+
   const topSellingDrugsData = {
     labels:<?php include "../actions/get_weekly_sales.php"; echo $meds; ?>,
     datasets: [{
-      label: 'Top Selling Drugs',
-      data: <?php include "../actions/get_weekly_sales.php";
-  
-      echo $med_sales; ?>,
-      backgroundColor: [
-        //Generates colors based on the number of datasets
-        <?php
-        include "../actions/get_weekly_sales.php";
-        for ($i = 0; $i < $count; $i++) {
-          echo "'rgba(" . rand(0, 255) . "," . rand(0, 255) . "," . rand(0, 255) . ",0.6)',";
-        }
-        ?>
-      ],
-      borderWidth: 1
+      // label: 'Top Selling Drugs',
+      // data: <?php include "../actions/get_weekly_sales.php"; echo $med_sales; ?>,
+      // backgroundColor: [
+      //   'rgba(255, 99, 132, 0.6)',
+      //   'rgba(54, 162, 235, 0.6)',
+      //   'rgba(255, 206, 86, 0.6)',
+      //   'rgba(75, 192, 192, 0.6)',
+      //   'rgba(153, 102, 255, 0.6)'
+      // ],
+      // borderWidth: 1
+      data:{
+        labels: <?php include "../actions/get_weekly_sales.php"; echo $meds; ?>,
+        datasets: [{
+          label: 'Top Selling Drugs',
+          data: <?php include "../actions/get_weekly_sales.php"; echo $med_sales; ?>,
+          backgroundColor: [
+            'rgba(255, 99, 132, 0.6)',
+            'rgba(54, 162, 235, 0.6)',
+            'rgba(255, 206, 86, 0.6)',
+            'rgba(75, 192, 192, 0.6)',
+            'rgba(153, 102, 255, 0.6)'
+          ],
+          borderWidth: 1
+        }]
+      }
     }]
   };
 

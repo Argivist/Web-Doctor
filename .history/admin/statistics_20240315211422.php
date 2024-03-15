@@ -185,22 +185,21 @@ session_start();
       fill: true
     }]
   };
-var count= <?php include '../actions/get_weekly_sales.php'; echo $count ?>;
+
   const topSellingDrugsData = {
     labels:<?php include "../actions/get_weekly_sales.php"; echo $meds; ?>,
     datasets: [{
       label: 'Top Selling Drugs',
-      data: <?php include "../actions/get_weekly_sales.php";
-  
-      echo $med_sales; ?>,
+      data: <?php include "../actions/get_weekly_sales.php"; echo $med_sales; ?>,
       backgroundColor: [
         //Generates colors based on the number of datasets
         <?php
         include "../actions/get_weekly_sales.php";
-        for ($i = 0; $i < $count; $i++) {
-          echo "'rgba(" . rand(0, 255) . "," . rand(0, 255) . "," . rand(0, 255) . ",0.6)',";
-        }
-        ?>
+          for($i=0; $i<count($med_sales); $i++){
+            echo "'rgba(".rand(0,255).", ".rand(0,255).", ".rand(0,255).", 0.6)',";
+          }
+
+?>
       ],
       borderWidth: 1
     }]

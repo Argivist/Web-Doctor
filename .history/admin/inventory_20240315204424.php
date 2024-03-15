@@ -20,7 +20,6 @@ session_start();
     <link rel="stylesheet" href="../css/owl.theme.default.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/aos.css">
-    <link rel="stylesheet" href="../css/popup.css">
     <style>
         /* Styles for the inventory table */
         table {
@@ -96,45 +95,43 @@ session_start();
             </div>
         </div>
 
-
+    
         <div class="container">
-            <div class="site-blocks-table">
-                <h2 style="text-align:center;">Inventory Management System</h2>
-                <center><button class="btn" onclick="addItem()">Add New Item</button></center>
-                <table class="table table-bordered" id="inventoryTable">
-                    <thead>
-                        <tr>
-                            <th class="product-thumbnail">Product ID</th>
-                            <th class="product-name">Product</th>
-                            <th class="product-quantity">Quantity</th>
-                            <th class="product-remove">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="inventoryBody">
-
-                        <!-- popup -->
-
-                    </tbody>
-                </table>
+        <div class="site-blocks-table">
+        <h2 style="text-align:center;">Inventory Management System</h2>
+              <center><button class="btn" onclick="addItem()">Add New Item</button></center>
+              <table class="table table-bordered" id="inventoryTable">
+                <thead>
+                  <tr>
+                    <th class="product-thumbnail">Product ID</th>
+                    <th class="product-name">Product</th>
+                    <th class="product-quantity">Quantity</th>
+                    <th class="product-remove">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="inventoryBody">
+                 
+                  <!-- popup -->
+            
+                </tbody>
+              </table>
             </div>
         </div>
-    </div>
-    <div id="addItemModal" class="popup">
-        <div class="popup-item">
-            <input type="text" id="productName" name="prodName" placeholder="Product Name"><br>
-            <input type="number" id="quantity" name="quantity" placeholder="Quantity"><br>
-            <button class="btn" onclick="saveItem()">Save</button>
-            <button class="btn" onclick="cancelAddItem()">Cancel</button>
-                    </div>
-        </div>
+        <div id="addItemModal" style="display: none;">
+                                <input type="text" id="productId" name="prodID" placeholder="Product ID" hidden><br>
+                                <input type="text" id="productName" name="prodName" placeholder="Product Name"><br>
+                                <input type="number" id="quantity" name = "quantity" placeholder="Quantity"><br>
+                                <button class="btn" onclick="saveItem()">Save</button>
+                                <button class="btn" onclick="cancelAddItem()">Cancel</button>
+                            </div>
 </body>
 
 <script>
     // Sample inventory data
-    let inventory = <?php
-                    include '../functions/inventory_list.php';
-                    invList();
-                    ?>;
+    let inventory = <?php 
+        include '../functions/inventory_list.php';
+        invList();
+        ?>;
     // Function to render inventory table
     function renderInventory() {
         const tbody = document.getElementById("inventoryBody");
@@ -158,12 +155,12 @@ session_start();
 
     // Function to save the new item
     function saveItem() {
-        // const productId = document.getElementById("productId").value;
+        const productId = document.getElementById("productId").value;
         const productName = document.getElementById("productName").value;
         const quantity = parseInt(document.getElementById("quantity").value);
-        if ( productName && quantity) {
+        if (productId && productName && quantity) {
             inventory.push({
-                id: 0,
+                id: productId,
                 name: productName,
                 quantity: quantity
             });
@@ -172,7 +169,6 @@ session_start();
         } else {
             alert("Please fill all fields.");
         }
-
     }
 
     // Function to cancel adding a new item

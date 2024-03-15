@@ -158,12 +158,12 @@ session_start();
 
     // Function to save the new item
     function saveItem() {
-        // const productId = document.getElementById("productId").value;
+        const productId = document.getElementById("productId").value;
         const productName = document.getElementById("productName").value;
         const quantity = parseInt(document.getElementById("quantity").value);
-        if ( productName && quantity) {
+        if (productId && productName && quantity) {
             inventory.push({
-                id: 0,
+                id: productId,
                 name: productName,
                 quantity: quantity
             });
@@ -172,7 +172,6 @@ session_start();
         } else {
             alert("Please fill all fields.");
         }
-
     }
 
     // Function to cancel adding a new item

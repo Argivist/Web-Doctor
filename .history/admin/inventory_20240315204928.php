@@ -20,7 +20,6 @@ session_start();
     <link rel="stylesheet" href="../css/owl.theme.default.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/aos.css">
-    <link rel="stylesheet" href="../css/popup.css">
     <style>
         /* Styles for the inventory table */
         table {
@@ -119,8 +118,19 @@ session_start();
             </div>
         </div>
     </div>
-    <div id="addItemModal" class="popup">
-        <div class="popup-item">
+    <div id="addItemModal" class="container" style="display: block; width:100%;height:100vh; position:fixed; top:0; left:0;right:0;bottom:0;background-color: rgba(0,0,0,0.5);">
+        <div style="position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s;">
+            <input type="text" id="productId" name="prodID" placeholder="Product ID" hidden><br>
             <input type="text" id="productName" name="prodName" placeholder="Product Name"><br>
             <input type="number" id="quantity" name="quantity" placeholder="Quantity"><br>
             <button class="btn" onclick="saveItem()">Save</button>
@@ -158,12 +168,12 @@ session_start();
 
     // Function to save the new item
     function saveItem() {
-        // const productId = document.getElementById("productId").value;
+        const productId = document.getElementById("productId").value;
         const productName = document.getElementById("productName").value;
         const quantity = parseInt(document.getElementById("quantity").value);
-        if ( productName && quantity) {
+        if (productId && productName && quantity) {
             inventory.push({
-                id: 0,
+                id: productId,
                 name: productName,
                 quantity: quantity
             });
@@ -172,7 +182,6 @@ session_start();
         } else {
             alert("Please fill all fields.");
         }
-
     }
 
     // Function to cancel adding a new item

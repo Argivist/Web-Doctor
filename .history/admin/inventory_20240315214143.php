@@ -163,7 +163,7 @@ session_start();
         const quantity = parseInt(document.getElementById("quantity").value);
         if ( productName && quantity) {
             inventory.push({
-                id: 0,
+                id: productId,
                 name: productName,
                 quantity: quantity
             });
