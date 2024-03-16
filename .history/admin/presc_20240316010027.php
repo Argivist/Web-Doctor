@@ -287,9 +287,8 @@ session_start();
 
                         $count = 0;
                         foreach ($presc as $item) {
-                            if ($item['approved'] == 0) {
-                                echo displayPresc($item["prescript_id"], $item['medicine_id'], $item['img_url'], $item['medicine_name'], $item['qty'], $item['desc'], $item['medicine_price']);
-                            }
+
+                            echo displayPresc($item["prescript_id"],$item['medicine_id'], $item['img_url'], $item['medicine_name'], $item['qty'], $item['desc'], $item['medicine_price']);
                         }
 
                         ?>
@@ -322,7 +321,7 @@ session_start();
             </div>
         </div>
         <script>
-
+            
         </script>
 </body>
 <script src="../js/jquery-3.3.1.min.js"></script>
@@ -355,7 +354,7 @@ session_start();
         $('.validate-button').click(function() {
             var prescription = $(this).closest('.prescription');
             var prescid = $(this).data('product-id');
-
+            
             validatePrescription(prescription, prescid);
         });
 
@@ -363,7 +362,7 @@ session_start();
         $('.reject-button').click(function() {
             var presid = $(this).data('product-id');
             // $('.rejection-reason').data('product-name', productName);
-            rejectPrescription(presid); //prescription, productName, rejectionReason);
+            rejectPrescription(presid);//prescription, productName, rejectionReason);
         });
 
         // Handle click on submit rejection button
@@ -391,7 +390,7 @@ session_start();
             ).then(response => response.json()).then(data => {
                 if (data.status === "Success") {
                     alert('Prescription validated successfully');
-
+                
                 } else {
                     alert('Prescription validation failed');
                 }
@@ -401,7 +400,7 @@ session_start();
         }
 
         // Function to reject prescription
-        function rejectPrescription(prescid) { //prescription, productName, rejectionReason) {
+        function rejectPrescription(prescid){//prescription, productName, rejectionReason) {
             fetch(
                 '../actions/prescription.php', {
                     method: 'POST',
@@ -415,10 +414,10 @@ session_start();
                 }
             ).then(response => response.json()).then(data => {
                 if (data.status === "Success") {
-                    alert('Prescription Rejected');
-
+                    alert('Prescription validated successfully');
+                
                 } else {
-                    alert('Prescription Rejection failed');
+                    alert('Prescription validation failed');
                 }
                 window.location.reload();
             });

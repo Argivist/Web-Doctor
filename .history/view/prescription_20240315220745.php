@@ -23,7 +23,6 @@ if (!isset($_SESSION['id'])) {
   <link rel="stylesheet" href="../css/owl.theme.default.min.css">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/aos.css">
-
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -192,7 +191,7 @@ if (!isset($_SESSION['id'])) {
               $count = 0;
               foreach ($cart as $item) {
                 if ($item['approved'] == 1) {
-                  echo displayPresc($item['medicine_id'], $item['img_url'], $item['medicine_name'], $item['qty'], $item['desc'], $item['medicine_price']);
+                  echo displayPresc($item['medicine_id'], $item['img_url'], $item['medicine_name'], $item['qty'], $item['desc'],$item['medicine_price']);
                 }
               }
 
@@ -219,8 +218,8 @@ if (!isset($_SESSION['id'])) {
               $count = 0;
               foreach ($cart as $item) {
                 if ($item['approved'] == 0) {
-
-                  echo displayPresc($item['medicine_id'], $item['img_url'], $item['medicine_name'], $item['qty'], $item['desc'], $item['medicine_price']);
+                  
+                  echo displayPresc($item['medicine_id'], $item['img_url'], $item['medicine_name'], $item['qty'], $item['desc'],$item['medicine_price']);
                 }
               }
 
@@ -230,48 +229,52 @@ if (!isset($_SESSION['id'])) {
           </table>
         </div>
       </div>
-      
-
-        <!-- footer -->
-        <footer class="site-footer">
-          <div class="container">
-            <div class="row">
-              <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-
-                <div class="block-7">
-                  <h3 class="footer-heading mb-4">About Us</h3>
-                  <p>We aim to solve the problem of access to information and streamline the pharmaceutical supply chain by providing a
-                    comprehensive online platform. This platform will cater to pharmacies, pharmaceutical businesses, and individual consumers,
-                    offering them a range of features to meet their needs</p>
+              <div class="popup">
+                <div class="popup-item">
+                  
                 </div>
-
               </div>
-              <div class="col-lg-3 mx-auto mb-5 mb-lg-0">
-                <h3 class="footer-heading mb-4">Quick Links</h3>
+
+      <!-- footer -->
+      <footer class="site-footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
+
+              <div class="block-7">
+                <h3 class="footer-heading mb-4">About Us</h3>
+                <p>We aim to solve the problem of access to information and streamline the pharmaceutical supply chain by providing a
+                  comprehensive online platform. This platform will cater to pharmacies, pharmaceutical businesses, and individual consumers,
+                  offering them a range of features to meet their needs</p>
+              </div>
+
+            </div>
+            <div class="col-lg-3 mx-auto mb-5 mb-lg-0">
+              <h3 class="footer-heading mb-4">Quick Links</h3>
+              <ul class="list-unstyled">
+                <li><a href="#">Supplements</a></li>
+                <li><a href="#">Vitamins</a></li>
+                <li><a href="#">Diet &amp; Nutrition</a></li>
+                <li><a href="#">Tea &amp; Coffee</a></li>
+              </ul>
+            </div>
+
+            <div class="col-md-6 col-lg-3">
+              <div class="block-5 mb-5">
+                <h3 class="footer-heading mb-4">Contact Info</h3>
                 <ul class="list-unstyled">
-                  <li><a href="#">Supplements</a></li>
-                  <li><a href="#">Vitamins</a></li>
-                  <li><a href="#">Diet &amp; Nutrition</a></li>
-                  <li><a href="#">Tea &amp; Coffee</a></li>
+                  <li class="address">1 University Avenue Berekuso</li>
+                  <li class="phone"><a href="tel://23923929210">+233 54992328</a></li>
+                  <li class="email">priscile.nzonbi@ashesi.edu.gh</li>
                 </ul>
               </div>
 
-              <div class="col-md-6 col-lg-3">
-                <div class="block-5 mb-5">
-                  <h3 class="footer-heading mb-4">Contact Info</h3>
-                  <ul class="list-unstyled">
-                    <li class="address">1 University Avenue Berekuso</li>
-                    <li class="phone"><a href="tel://23923929210">+233 54992328</a></li>
-                    <li class="email">priscile.nzonbi@ashesi.edu.gh</li>
-                  </ul>
-                </div>
 
-
-              </div>
             </div>
-
           </div>
-        </footer>
+
+        </div>
+      </footer>
 </body>
 
 </html>

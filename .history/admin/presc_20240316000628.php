@@ -220,7 +220,7 @@ session_start();
 
 
                 <!-- Profile Modal -->
-                <div class="modal fade popup" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
+                <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -283,13 +283,12 @@ session_start();
                         <?php
                         include '../actions/get_all_presc.php';
                         include '../functions/list_presc_action.php';
-                        $presc = getPresc();
+                        $cart = getPresc();
 
                         $count = 0;
-                        foreach ($presc as $item) {
-                            if ($item['approved'] == 0) {
-                                echo displayPresc($item["prescript_id"], $item['medicine_id'], $item['img_url'], $item['medicine_name'], $item['qty'], $item['desc'], $item['medicine_price']);
-                            }
+                        foreach ($cart as $item) {
+
+                            echo displayPresc($item['medicine_id'], $item['img_url'], $item['medicine_name'], $item['qty'], $item['desc'], $item['medicine_price']);
                         }
 
                         ?>
@@ -322,7 +321,7 @@ session_start();
             </div>
         </div>
         <script>
-
+            
         </script>
 </body>
 <script src="../js/jquery-3.3.1.min.js"></script>
@@ -354,76 +353,35 @@ session_start();
         // Handle click on validate button
         $('.validate-button').click(function() {
             var prescription = $(this).closest('.prescription');
-            var prescid = $(this).data('product-id');
-
-            validatePrescription(prescription, prescid);
+            var productName = $(this).data('product-name');
+            validatePrescription(prescription, productName);
         });
 
         // Handle click on reject button
         $('.reject-button').click(function() {
-            var presid = $(this).data('product-id');
-            // $('.rejection-reason').data('product-name', productName);
-            rejectPrescription(presid); //prescription, productName, rejectionReason);
+            var productName = $(this).data('product-name');
+            $('.rejection-reason').data('product-name', productName);
         });
 
         // Handle click on submit rejection button
-        // $('.submit-rejection').click(function() {
-        //     var prescription = $('.rejection-reason').closest('.prescription');
-        //     var productName = $('.rejection-reason').data('product-name');
-        //     var rejectionReason = $('.rejection-reason').val();
-        //     rejectPrescription(prescription, productName, rejectionReason);
-        //     $('#reasonModal').modal('hide');
-        // });
+        $('.submit-rejection').click(function() {
+            var prescription = $('.rejection-reason').closest('.prescription');
+            var productName = $('.rejection-reason').data('product-name');
+            var rejectionReason = $('.rejection-reason').val();
+            rejectPrescription(prescription, productName, rejectionReason);
+            $('#reasonModal').modal('hide');
+        });
 
         // Function to validate prescription
-        function validatePrescription(prescription, prescid) {
-            fetch(
-                '../actions/prescription.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        action: 0,
-                        pid: prescid
-                    })
-                }
-            ).then(response => response.json()).then(data => {
-                if (data.status === "Success") {
-                    alert('Prescription validated successfully');
-
-                } else {
-                    alert('Prescription validation failed');
-                }
-                window.location.reload();
-            });
-            // prescription.find('.validation-status').removeClass('badge-secondary').addClass('badge-success').text('Validated');
+        function validatePrescription(prescription, productName) {
+            // Dummy validation logic (replace with actual validation)
+            prescription.find('.validation-status').removeClass('badge-secondary').addClass('badge-success').text('Validated');
         }
 
         // Function to reject prescription
-        function rejectPrescription(prescid) { //prescription, productName, rejectionReason) {
-            fetch(
-                '../actions/prescription.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        action: 1,
-                        pid: prescid
-                    })
-                }
-            ).then(response => response.json()).then(data => {
-                if (data.status === "Success") {
-                    alert('Prescription Rejected');
-
-                } else {
-                    alert('Prescription Rejection failed');
-                }
-                window.location.reload();
-            });
+        function rejectPrescription(prescription, productName, rejectionReason) {
             // Send AJAX request to reject prescription
-            // prescription.find('.validation-status').removeClass('badge-secondary').addClass('badge-danger').text('Rejected');
+            prescription.find('.validation-status').removeClass('badge-secondary').addClass('badge-danger').text('Rejected');
             // You may want to update the UI to reflect rejection reason
         }
     });

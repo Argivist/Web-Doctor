@@ -239,7 +239,7 @@ session_start();
                 </div>
 
                 <!-- Reason Modal -->
-                <!-- <div class="modal fade reason-modal" id="reasonModal" tabindex="-1" role="dialog" aria-labelledby="reasonModalLabel" aria-hidden="true">
+                <div class="modal fade reason-modal" id="reasonModal" tabindex="-1" role="dialog" aria-labelledby="reasonModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -260,7 +260,7 @@ session_start();
                             </div>
                         </div>
                     </div>
-                </div> -->
+                </div>
                 <!-- new list -->
                 <div class="site-blocks-table">
                     <!-- Adding patient -->
@@ -287,9 +287,8 @@ session_start();
 
                         $count = 0;
                         foreach ($presc as $item) {
-                            if ($item['approved'] == 0) {
-                                echo displayPresc($item["prescript_id"], $item['medicine_id'], $item['img_url'], $item['medicine_name'], $item['qty'], $item['desc'], $item['medicine_price']);
-                            }
+
+                            echo displayPresc($item["prescript_id"],$item['medicine_id'], $item['img_url'], $item['medicine_name'], $item['qty'], $item['desc'], $item['medicine_price']);
                         }
 
                         ?>
@@ -322,7 +321,7 @@ session_start();
             </div>
         </div>
         <script>
-
+            
         </script>
 </body>
 <script src="../js/jquery-3.3.1.min.js"></script>
@@ -355,25 +354,24 @@ session_start();
         $('.validate-button').click(function() {
             var prescription = $(this).closest('.prescription');
             var prescid = $(this).data('product-id');
-
+            
             validatePrescription(prescription, prescid);
         });
 
         // Handle click on reject button
         $('.reject-button').click(function() {
-            var presid = $(this).data('product-id');
-            // $('.rejection-reason').data('product-name', productName);
-            rejectPrescription(presid); //prescription, productName, rejectionReason);
+            var productName = $(this).data('product-name');
+            $('.rejection-reason').data('product-name', productName);
         });
 
         // Handle click on submit rejection button
-        // $('.submit-rejection').click(function() {
-        //     var prescription = $('.rejection-reason').closest('.prescription');
-        //     var productName = $('.rejection-reason').data('product-name');
-        //     var rejectionReason = $('.rejection-reason').val();
-        //     rejectPrescription(prescription, productName, rejectionReason);
-        //     $('#reasonModal').modal('hide');
-        // });
+        $('.submit-rejection').click(function() {
+            var prescription = $('.rejection-reason').closest('.prescription');
+            var productName = $('.rejection-reason').data('product-name');
+            var rejectionReason = $('.rejection-reason').val();
+            rejectPrescription(prescription, productName, rejectionReason);
+            $('#reasonModal').modal('hide');
+        });
 
         // Function to validate prescription
         function validatePrescription(prescription, prescid) {
@@ -391,7 +389,7 @@ session_start();
             ).then(response => response.json()).then(data => {
                 if (data.status === "Success") {
                     alert('Prescription validated successfully');
-
+                
                 } else {
                     alert('Prescription validation failed');
                 }
@@ -401,7 +399,7 @@ session_start();
         }
 
         // Function to reject prescription
-        function rejectPrescription(prescid) { //prescription, productName, rejectionReason) {
+        function rejectPrescription(prescid){//prescription, productName, rejectionReason) {
             fetch(
                 '../actions/prescription.php', {
                     method: 'POST',
@@ -415,10 +413,10 @@ session_start();
                 }
             ).then(response => response.json()).then(data => {
                 if (data.status === "Success") {
-                    alert('Prescription Rejected');
-
+                    alert('Prescription validated successfully');
+                
                 } else {
-                    alert('Prescription Rejection failed');
+                    alert('Prescription validation failed');
                 }
                 window.location.reload();
             });

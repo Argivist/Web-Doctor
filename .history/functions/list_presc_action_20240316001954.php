@@ -29,7 +29,7 @@ function displayPresc($pid,$mid, $url, $med_name, $medicine_qty, $medicine_desc,
                     <td>
                     <button class='btn btn-primary safer validate-button' data-product-id='".$pid."'>Validate Prescription</button><br/>
                     <button class='btn btn-primary  view-profile-button' data-toggle='modal' data-target='#profileModal' data-name='Emily Brown' data-age='28'>View Buyer Profile</button><br/>
-                    <button class='btn btn-primary danger reject-button' data-toggle='modal' data-target='#reasonModal' data-product-id='".$pid."'>Reject Prescription</button><br/>
+                    <button class='btn btn-primary danger reject-button' data-toggle='modal' data-target='#reasonModal' data-product-name='".$pid."'>Reject Prescription</button><br/>
             
                     </td>
                     

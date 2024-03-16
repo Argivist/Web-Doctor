@@ -23,7 +23,7 @@ if (!isset($_SESSION['id'])) {
   <link rel="stylesheet" href="../css/owl.theme.default.min.css">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/aos.css">
-
+  <link rel="stylesheet" href="../css/popup.css">
   <style>
     body {
       font-family: Arial, sans-serif;

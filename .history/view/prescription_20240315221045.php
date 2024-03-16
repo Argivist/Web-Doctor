@@ -23,7 +23,7 @@ if (!isset($_SESSION['id'])) {
   <link rel="stylesheet" href="../css/owl.theme.default.min.css">
   <link rel="stylesheet" href="../css/style.css">
   <link rel="stylesheet" href="../css/aos.css">
-
+  <link rel="stylesheet" href="../css/popup.css">
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -230,7 +230,20 @@ if (!isset($_SESSION['id'])) {
           </table>
         </div>
       </div>
-      
+      <div class="popup">
+        <div class="popup-item">
+          <div class="popup-header">
+            <h2>Add Prescription</h2>
+            <span class="close" onclick="closePopup()">&times;</span>
+          </div>
+          <div class="popup-body">
+            <form action="../actions/add_presc.php" method="post" enctype="multipart/form-data">
+              <div class="form-group  mb-2">
+                <label for="medicine">Medicine</label>
+                <input type="text" class="form-control" id="medicine" name="medicine" required>
+              </div>
+          </div>
+        </div>
 
         <!-- footer -->
         <footer class="site-footer">

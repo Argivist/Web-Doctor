@@ -21,10 +21,6 @@ session_start();
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/aos.css">
     <link rel="stylesheet" href="../css/popup.css">
-    <script src="../js/popup.js"></script>
-    <script src="../js/ajax_.js"></script>
-
-
     <!-- <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -143,18 +139,16 @@ session_start();
         }
     </style> -->
     <style>
-        .btn {
-            margin-top: 10px;
+        .btn{
+            margin-top:10px;
         }
-
-        .safer:hover {
-            border: green solid 2px;
+        .safer:hover{
+            border:green solid 3px;
         }
-
-        .danger:hover {
-            border: red solid 2px;
+        .danger:hover{
+            border:red solid 3px;
         }
-    </style>
+        </style>
 
 </head>
 
@@ -217,29 +211,29 @@ session_start();
         <!--Image By: Photo by Alex Green: https://www.pexels.com/photo/pile-of-white-spilled-pills-5699514/-->
         <div class="site-blocks-cover">
             <div class="container">
+        
 
-
-                <!-- Profile Modal -->
-                <div class="modal fade popup" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
-                    <div class="modal-dialog" role="document">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <h5 class="modal-title" id="profileModalLabel">Buyer Profile</h5>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                    <span aria-hidden="true">&times;</span>
-                                </button>
+                            <!-- Profile Modal -->
+                            <div class="modal fade" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="profileModalLabel">Buyer Profile</h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Name: <span id="buyerName"></span></p>
+                                            <p>Age: <span id="buyerAge"></span></p>
+                                            <p>Adult: <span id="isAdult"></span></p>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="modal-body">
-                                <p>Name: <span id="buyerName"></span></p>
-                                <p>Age: <span id="buyerAge"></span></p>
-                                <p>Adult: <span id="isAdult"></span></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Reason Modal -->
-                <!-- <div class="modal fade reason-modal" id="reasonModal" tabindex="-1" role="dialog" aria-labelledby="reasonModalLabel" aria-hidden="true">
+                            <!-- Reason Modal -->
+                            <!-- <div class="modal fade reason-modal" id="reasonModal" tabindex="-1" role="dialog" aria-labelledby="reasonModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
@@ -263,75 +257,45 @@ session_start();
                 </div> -->
                 <!-- new list -->
                 <div class="site-blocks-table">
-                    <!-- Adding patient -->
-                    <div class="container">
-                        <h2 style="text-align:center;">Prescription Validation</h2>
-                        <center><button class="btn" onclick="openPopup('popup_add_presc')">Add Prescription</button></center>
-                    </div>
-                </div>
-                <table class="table table-bordered">
+                    <table class="table table-bordered">
+                    
+                        <thead>
+                            <tr>
+                                <th class="product-thumbnail">Image</th>
+                                <th class="product-name">Medication</th>
+                                <th class="product-quantity">Quantity</th>
+                                <th class="product-price">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                            include '../actions/get_all_presc.php';
+                            include '../functions/list_presc_action.php';
+                            $cart = getPresc();
 
-                    <thead>
-                        <tr>
-                            <th class="product-thumbnail">Image</th>
-                            <th class="product-name">Medication</th>
-                            <th class="product-quantity">Quantity</th>
-                            <th class="product-price">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php
-                        include '../actions/get_all_presc.php';
-                        include '../functions/list_presc_action.php';
-                        $presc = getPresc();
+                            $count = 0;
+                            foreach ($cart as $item) {
 
-                        $count = 0;
-                        foreach ($presc as $item) {
-                            if ($item['approved'] == 0) {
-                                echo displayPresc($item["prescript_id"], $item['medicine_id'], $item['img_url'], $item['medicine_name'], $item['qty'], $item['desc'], $item['medicine_price']);
+                                echo displayPresc($item['medicine_id'], $item['img_url'], $item['medicine_name'], $item['qty'], $item['desc'], $item['medicine_price']);
                             }
-                        }
 
-                        ?>
-                    </tbody>
-                    <table>
-            </div>
-        </div>
-    </div>
-    <!-- popup -->
-    <div class="popup" id="popup_add_presc">
-        <div class="popup-item">
-            <div class="popup-header">
-                <h2>Add Prescription</h2>
-                <span class="close" onclick="closePopup('popup_add_presc')">&times;</span>
-            </div>
-            <div class="popup-body">
-                <div class="error" id="error"></div>
-                <!-- <form action="../actions/add_presc.php" method="post" enctype="multipart/form-data"> -->
-                <div class="form-group  mb-2">
-                    <label for="medicine">Medicine ID</label>
-                    <input type="text" class="form-control" id="medicine" name="medid" required>
-                    <label for="patient"> Patient ID</label>
-                    <input type="text" class="form-control" id="patient" name="pid" required>
-                    <label for="quantity">Quantity</label>
-                    <input type="number" class="form-control" id="quantity" name="quantity" required>
-                    <label for="file">Prescription</label>
-                    <input type="file" name="file" id="file" required>
-                    <input type="submit" class="btn btn-primary" value="Add Prescription" onclick="add_presc('medicine','patient','quantity','error')">
+                            ?>
+                        </tbody>
+                        <table>
                 </div>
             </div>
         </div>
-        <script>
-
-        </script>
 </body>
-<script src="../js/jquery-3.3.1.min.js"></script>
-<script src="../js/jquery-ui.js"></script>
-<script src="../js/popper.min.js"></script>
-<script src="../js/bootstrap.min.js"></script>
-<script src="../js/owl.carousel.min.js"></script>
-<script src="../js/jquery.magnific-popup.min.js"></script>
-<script src="../js/aos.js"></script>
+<script src="js/jquery-3.3.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.magnific-popup.min.js"></script>
+<script src="js/aos.js"></script>
+<script>
+    src = "js/shop.js"
+</script>
 
 <script src="js/main.js"></script>
 
@@ -354,76 +318,35 @@ session_start();
         // Handle click on validate button
         $('.validate-button').click(function() {
             var prescription = $(this).closest('.prescription');
-            var prescid = $(this).data('product-id');
-
-            validatePrescription(prescription, prescid);
+            var productName = $(this).data('product-name');
+            validatePrescription(prescription, productName);
         });
 
         // Handle click on reject button
         $('.reject-button').click(function() {
-            var presid = $(this).data('product-id');
-            // $('.rejection-reason').data('product-name', productName);
-            rejectPrescription(presid); //prescription, productName, rejectionReason);
+            var productName = $(this).data('product-name');
+            $('.rejection-reason').data('product-name', productName);
         });
 
         // Handle click on submit rejection button
-        // $('.submit-rejection').click(function() {
-        //     var prescription = $('.rejection-reason').closest('.prescription');
-        //     var productName = $('.rejection-reason').data('product-name');
-        //     var rejectionReason = $('.rejection-reason').val();
-        //     rejectPrescription(prescription, productName, rejectionReason);
-        //     $('#reasonModal').modal('hide');
-        // });
+        $('.submit-rejection').click(function() {
+            var prescription = $('.rejection-reason').closest('.prescription');
+            var productName = $('.rejection-reason').data('product-name');
+            var rejectionReason = $('.rejection-reason').val();
+            rejectPrescription(prescription, productName, rejectionReason);
+            $('#reasonModal').modal('hide');
+        });
 
         // Function to validate prescription
-        function validatePrescription(prescription, prescid) {
-            fetch(
-                '../actions/prescription.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        action: 0,
-                        pid: prescid
-                    })
-                }
-            ).then(response => response.json()).then(data => {
-                if (data.status === "Success") {
-                    alert('Prescription validated successfully');
-
-                } else {
-                    alert('Prescription validation failed');
-                }
-                window.location.reload();
-            });
-            // prescription.find('.validation-status').removeClass('badge-secondary').addClass('badge-success').text('Validated');
+        function validatePrescription(prescription, productName) {
+            // Dummy validation logic (replace with actual validation)
+            prescription.find('.validation-status').removeClass('badge-secondary').addClass('badge-success').text('Validated');
         }
 
         // Function to reject prescription
-        function rejectPrescription(prescid) { //prescription, productName, rejectionReason) {
-            fetch(
-                '../actions/prescription.php', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                    body: JSON.stringify({
-                        action: 1,
-                        pid: prescid
-                    })
-                }
-            ).then(response => response.json()).then(data => {
-                if (data.status === "Success") {
-                    alert('Prescription Rejected');
-
-                } else {
-                    alert('Prescription Rejection failed');
-                }
-                window.location.reload();
-            });
+        function rejectPrescription(prescription, productName, rejectionReason) {
             // Send AJAX request to reject prescription
-            // prescription.find('.validation-status').removeClass('badge-secondary').addClass('badge-danger').text('Rejected');
+            prescription.find('.validation-status').removeClass('badge-secondary').addClass('badge-danger').text('Rejected');
             // You may want to update the UI to reflect rejection reason
         }
     });
