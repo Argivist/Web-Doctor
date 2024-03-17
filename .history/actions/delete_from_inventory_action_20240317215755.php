@@ -15,7 +15,7 @@
         }
     } 
     else {
-        header('Location: ../admin/inventory.php');
+        header('Location: ../admin/Iinventory.php');
     }
     
 
