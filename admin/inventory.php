@@ -107,24 +107,30 @@ session_start();
 
 
         <div class="container">
-            <div class="site-blocks-table">
-                <h2 style="text-align:center;">Inventory Management System</h2>
-                <center><button class="btn" onclick="addItem()">Add New Item</button></center>
-                <table class="table table-bordered" id="inventoryTable">
-                    <thead>
-                        <tr>
-                            <th class="product-thumbnail">Product ID</th>
-                            <th class="product-name">Product</th>
-                            <th class="product-quantity">Quantity</th>
-                            <th class="product-remove">Action</th>
-                        </tr>
-                    </thead>
-                    <tbody id="inventoryBody">
-
-                        <!-- popup -->
-
-                    </tbody>
-                </table>
+        <div class="site-blocks-table">
+        <h2 style="text-align:center;">Inventory Management System</h2>
+              <center><button class="btn" onclick="addItem()">Add New Item</button></center>
+              <table class="table table-bordered" id="inventoryTable">
+                <thead>
+                  <tr>
+                    <th class="product-thumbnail">Product ID</th>
+                    <th class="product-name">Product</th>
+                    <th class="product-quantity">Quantity</th>
+                    <th class="product-remove">Action</th>
+                  </tr>
+                </thead>
+                <tbody id="inventoryBody">
+                 
+                  <!-- popup -->
+                  <div id="addItemModal" style="display: none;">
+                                <input type="text" id="productId" name="prodID" placeholder="Product ID" hidden><br>
+                                <input type="text" id="productName" name="prodName" placeholder="Product Name"><br>
+                                <input type="number" id="quantity" name = "quantity" placeholder="Quantity"><br>
+                                <button class="btn" onclick="saveItem()">Save</button>
+                                <button class="btn" onclick="cancelAddItem()">Cancel</button>
+                            </div>
+                </tbody>
+              </table>
             </div>
         </div>
     </div>
