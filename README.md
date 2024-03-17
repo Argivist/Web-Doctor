@@ -1,10 +1,12 @@
 # Web doctor
+
 ## Problem Statement
 
-In the pharmaceutical sector, there exists a significant challenge of limited access to comprehensive information regarding medications, treatments, and associated expenses. 
+In the pharmaceutical sector, there exists a significant challenge of limited access to comprehensive information regarding medications, treatments, and associated expenses.
 This obstacle hampers the ability of pharmacies, pharmaceutical enterprises, and individual consumers to efficiently locate and acquire necessary products.
 
-## Solution 
+## Solution
+
 We are building a pharmacy management systems, a platform that will cater to pharmacies, pharmaceutical businesses, and individual consumers, offering them a range of features:
 
 * Medicine Search Functionality and Display: Users can search for medicines based on various parameters and view detailed product information.
@@ -23,3 +25,35 @@ Frontend: HTML, CSS, JavaScript
 Backend: PHP
 Database: MySQL
 Version Control: Git
+
+## Navigation
+
+### Login
+
+* [Login]('./login/login.php')
+
+* [Register]('./login/register.php')
+
+### User
+
+* [Home Page]('./view/home.php')
+
+* [About US]('./view/aboutus.php')
+* [Profile]('./view/profile.php')
+* [Shop]('./view/shop.php')
+* [prescription](./view/prescription.php)
+
+### Admin
+
+ All Admin pages are not listed as that requires higher authorisation
+
+
+## Contributors
+- Hutton Amisson-Addy
+- Priscile Nkenmeza Nzonbi
+- Charlene Esi Fafali Duametu
+- Faisal Alidu
+- Hilary Achiaa Osei-Okrah
+ 
+## Link
+[Web Doctor]('http://18.133.105.236/Web-Doctor/')
