@@ -69,8 +69,8 @@ if (!isset($_SESSION['id'])) {
             <nav class="site-navigation text-right text-md-center" role="navigation">
               <ul class="site-menu js-clone-nav d-lg-block">
                 <li><a href="home.php">Home</a></li>
-                <li ><a href="shop.php">Store</a></li>
-                <li class="active"><a href="prescription.php">Prescription</a></li>
+                <li class="active"><a href="shop.php">Store</a></li>
+                <li class=""><a href="prescription.php">Prescription</a></li>
 
                 <li><a href="aboutus.php">About</a></li>
 

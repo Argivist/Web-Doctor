@@ -224,8 +224,12 @@ session_start();
 
         <!--Main Content-->
         <!--Image By: Photo by Alex Green: https://www.pexels.com/photo/pile-of-white-spilled-pills-5699514/-->
-        <!-- Profile Modal -->
-        <div class="modal fade popup" color="black" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="site-blocks-cover">
+            <div class="container">
+
+
+                <!-- Profile Modal -->
+                <div class="modal fade popup" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -235,18 +239,13 @@ session_start();
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <p color="black">Name: <span id="buyerName"></span></p>
+                                <p>Name: <span id="buyerName"></span></p>
                             
                                 <p>Details: <span id="desc"></span></p>
                             </div>
                         </div>
                     </div>
                 </div>
-        <div class="site-blocks-cover">
-            <div class="container">
-
-
-                
 
                 <!-- Reason Modal -->
                 <!-- <div class="modal fade reason-modal" id="reasonModal" tabindex="-1" role="dialog" aria-labelledby="reasonModalLabel" aria-hidden="true">
@@ -313,45 +312,6 @@ session_start();
             </div>
         </div>
     </div>
-    <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
-
-            <div class="block-7">
-              <h3 class="footer-heading mb-4">About Us</h3>
-              <p>We aim to solve the problem of access to information and streamline the pharmaceutical supply chain by providing a
-                comprehensive online platform. This platform will cater to pharmacies, pharmaceutical businesses, and individual consumers,
-                offering them a range of features to meet their needs</p>
-            </div>
-
-          </div>
-          <div class="col-lg-3 mx-auto mb-5 mb-lg-0">
-            <h3 class="footer-heading mb-4">Quick Links</h3>
-            <ul class="list-unstyled">
-              <li><a href="#">Supplements</a></li>
-              <li><a href="#">Vitamins</a></li>
-              <li><a href="#">Diet &amp; Nutrition</a></li>
-              <li><a href="#">Tea &amp; Coffee</a></li>
-            </ul>
-          </div>
-
-          <div class="col-md-6 col-lg-3">
-            <div class="block-5 mb-5">
-              <h3 class="footer-heading mb-4">Contact Info</h3>
-              <ul class="list-unstyled">
-                <li class="address">1 university Avenue Berekuso</li>
-                <li class="phone"><a href="tel://23923929210">+233 549923288</a></li>
-                <li class="email">priscile.nzonbi@ashesi.edu.gh</li>
-              </ul>
-            </div>
-
-
-          </div>
-        </div>
-
-      </div>
-    </footer>
     <!-- popup -->
     <div class="popup" id="popup_add_presc">
         <div class="popup-item">
@@ -377,7 +337,9 @@ session_start();
                 </div>
             </div>
         </div>
-    
+        <script>
+
+        </script>
 </body>
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src="../js/jquery-ui.js"></script>

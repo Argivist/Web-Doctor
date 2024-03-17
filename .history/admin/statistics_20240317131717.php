@@ -93,19 +93,34 @@ session_start();
               </ul>
             </nav>
           </div>
-
-          <div class="d-flex align-items-center justify-content-between">
           <?php
-            if (isset($_SESSION['id'])) {
-              echo "<div class='logout' style='margin-right:15px;'><a href='../actions/logout.php' title='log out'>
-            <img src='https://img.icons8.com/ios-glyphs/30/000000/export.png' alt='log out'/>
-            </a></div>";
-            } else {
-              echo "<div class='login' style='margin-right:15px;'><a href='../login/login.php' title='log in'>
-            <img src='https://img.icons8.com/ios-glyphs/30/000000/import.png' alt='log in'/>
-            </a></div>";
+          // if (isset($_SESSION['id'])) {
+          //   echo "<div class='logout'><a href='../actions/logout.php'>Logout</a></div>";
+          // } else {
+          //   echo "<div class='login'><a href='../login/login.php'>Sign in</a></div>";
+          // } ?>
+          //   <div class="d-flex align-items-center justify-content-between">
+          // <?php
+          //   if (isset($_SESSION['id'])) {
+          //     echo "<div class='logout' style='margin-right:15px;'><a href='../actions/logout.php' title='log out'>
+          //   <img src='https://img.icons8.com/ios-glyphs/30/000000/export.png' alt='log out'/>
+          //   </a></div>";
+          //   } else {
+          //     echo "<div class='login' style='margin-right:15px;'><a href='../login/login.php' title='log in'>
+          //   <img src='https://img.icons8.com/ios-glyphs/30/000000/import.png' alt='log in'/>
+          //   </a></div>";
             } ?>
-
+            <!-- cart -->
+            <?php
+            if (isset($_SESSION['id'])) {
+              echo "<a href='cart.php' title='Shopping Cart'>
+                <img style='margin-right:15px;' src='https://img.icons8.com/material-rounded/24/000000/shopping-cart.png'/>
+                </a>";
+            } else {
+              echo "<a href='../login/login.php' title='log in'>
+                <img style='margin-right:15px;' src='https://img.icons8.com/material-rounded/24/000000/shopping-cart.png'/></a>";
+            }
+            ?>
 
             <div class="profile">
               <!-- profile -->
@@ -122,16 +137,31 @@ session_start();
                         if (isset($_SESSION['id'])) {
                           echo "../img/logo/logo.png";
                         } else {
-                          echo "../img/default_profile.jpg";
+                          echo "../img/profile.jpg";
                         }
                         ?>
                         " alt="Image" class="rounded-circle" style="width:50px; border-radius:50px;"></a>
             </div>
           </div>
-
-
-
-        
+          <!-- <div class="profile">
+            <a href="
+                        <?php
+                        if (isset($_SESSION['id'])) {
+                          echo "profile.php";
+                        } else {
+                          echo "../login/login.php";
+                        }
+                        ?>
+                        "><img src="
+                        <?php
+                        if (isset($_SESSION['id'])) {
+                          echo "../img/logo/logo.png";
+                        } else {
+                          echo "../img/profile.jpg";
+                        }
+                        ?>
+                        " alt="Image" class="rounded-circle" style="width:50px; border-radius:50px;"></a>
+          </div> -->
         </div>
       </div>
     </div>

@@ -131,7 +131,33 @@ session_start();
 
 
 
-        
+          <!-- ////old -->
+          <?php
+          if (isset($_SESSION['id'])) {
+            echo "<div class='logout'><a href='../actions/logout.php'>Logout</a></div>";
+          } else {
+            echo "<div class='login'><a href='../login/login.php'>Sign in</a></div>";
+          } ?>
+          
+          <div class="profile">
+            <a href="
+                        <?php
+                        if (isset($_SESSION['id'])) {
+                          echo "profile.php";
+                        } else {
+                          echo "../login/login.php";
+                        }
+                        ?>
+                        "><img src="
+                        <?php
+                        if (isset($_SESSION['id'])) {
+                          echo "../img/logo/logo.png";
+                        } else {
+                          echo "../img/profile.jpg";
+                        }
+                        ?>
+                        " alt="Image" class="rounded-circle" style="width:50px; border-radius:50px;"></a>
+          </div>
         </div>
       </div>
     </div>

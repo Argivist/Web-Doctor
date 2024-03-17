@@ -224,8 +224,12 @@ session_start();
 
         <!--Main Content-->
         <!--Image By: Photo by Alex Green: https://www.pexels.com/photo/pile-of-white-spilled-pills-5699514/-->
-        <!-- Profile Modal -->
-        <div class="modal fade popup" color="black" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="site-blocks-cover">
+            <div class="container">
+
+
+                <!-- Profile Modal -->
+                <div class="modal fade popup" color="black" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="profileModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
                             <div class="modal-header">
@@ -235,18 +239,13 @@ session_start();
                                 </button>
                             </div>
                             <div class="modal-body">
-                                <p color="black">Name: <span id="buyerName"></span></p>
+                                <h1 color="black">Name: <span id="buyerName"></span></p>
                             
                                 <p>Details: <span id="desc"></span></p>
                             </div>
                         </div>
                     </div>
                 </div>
-        <div class="site-blocks-cover">
-            <div class="container">
-
-
-                
 
                 <!-- Reason Modal -->
                 <!-- <div class="modal fade reason-modal" id="reasonModal" tabindex="-1" role="dialog" aria-labelledby="reasonModalLabel" aria-hidden="true">
@@ -313,7 +312,32 @@ session_start();
             </div>
         </div>
     </div>
-    <footer class="site-footer">
+    <!-- popup -->
+    <div class="popup" id="popup_add_presc">
+        <div class="popup-item">
+            <div class="popup-header">
+                <h2>Add Prescription</h2>
+                <span class="close" onclick="closePopup('popup_add_presc')">&times;</span>
+            </div>
+            <div class="popup-body">
+                <div class="error" id="error"></div>
+                <!-- <form action="../actions/add_presc.php" method="post" enctype="multipart/form-data"> -->
+                <div class="form-group  mb-2">
+                    <label for="medicine">Medicine ID</label>
+                    <input type="text" class="form-control" id="medicine" name="medid" required>
+                    <label for="patient"> Patient ID</label>
+                    <input type="text" class="form-control" id="patient" name="pid" required>
+                    <label for="quantity">Quantity</label>
+                    <input type="number" class="form-control" id="quantity" name="quantity" required>
+                    <label for="file">Prescription</label>
+                    <label for="descr">Description</label>
+                    <textarea class="form-control" id="description" name="descr" required></textarea>
+                    <input type="file" name="file" id="file">
+                    <input type="submit" class="btn btn-primary" value="Add Prescription" onclick="add_presc('medicine','patient','quantity','description','error',)">
+                </div>
+            </div>
+        </div>
+        <footer class="site-footer">
       <div class="container">
         <div class="row">
           <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
@@ -352,32 +376,6 @@ session_start();
 
       </div>
     </footer>
-    <!-- popup -->
-    <div class="popup" id="popup_add_presc">
-        <div class="popup-item">
-            <div class="popup-header">
-                <h2>Add Prescription</h2>
-                <span class="close" onclick="closePopup('popup_add_presc')">&times;</span>
-            </div>
-            <div class="popup-body">
-                <div class="error" id="error"></div>
-                <!-- <form action="../actions/add_presc.php" method="post" enctype="multipart/form-data"> -->
-                <div class="form-group  mb-2">
-                    <label for="medicine">Medicine ID</label>
-                    <input type="text" class="form-control" id="medicine" name="medid" required>
-                    <label for="patient"> Patient ID</label>
-                    <input type="text" class="form-control" id="patient" name="pid" required>
-                    <label for="quantity">Quantity</label>
-                    <input type="number" class="form-control" id="quantity" name="quantity" required>
-                    <label for="file">Prescription</label>
-                    <label for="descr">Description</label>
-                    <textarea class="form-control" id="description" name="descr" required></textarea>
-                    <input type="file" name="file" id="file">
-                    <input type="submit" class="btn btn-primary" value="Add Prescription" onclick="add_presc('medicine','patient','quantity','description','error',)">
-                </div>
-            </div>
-        </div>
-    
 </body>
 <script src="../js/jquery-3.3.1.min.js"></script>
 <script src="../js/jquery-ui.js"></script>

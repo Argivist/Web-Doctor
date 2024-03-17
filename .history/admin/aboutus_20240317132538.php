@@ -173,45 +173,7 @@ session_start();
     <script src="../js/aos.js"></script>
 
     <script src="../js/main.js"></script>
-    <footer class="site-footer">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-3 mb-4 mb-lg-0">
 
-            <div class="block-7">
-              <h3 class="footer-heading mb-4">About Us</h3>
-              <p>We aim to solve the problem of access to information and streamline the pharmaceutical supply chain by providing a
-                comprehensive online platform. This platform will cater to pharmacies, pharmaceutical businesses, and individual consumers,
-                offering them a range of features to meet their needs</p>
-            </div>
-
-          </div>
-          <div class="col-lg-3 mx-auto mb-5 mb-lg-0">
-            <h3 class="footer-heading mb-4">Quick Links</h3>
-            <ul class="list-unstyled">
-              <li><a href="#">Supplements</a></li>
-              <li><a href="#">Vitamins</a></li>
-              <li><a href="#">Diet &amp; Nutrition</a></li>
-              <li><a href="#">Tea &amp; Coffee</a></li>
-            </ul>
-          </div>
-
-          <div class="col-md-6 col-lg-3">
-            <div class="block-5 mb-5">
-              <h3 class="footer-heading mb-4">Contact Info</h3>
-              <ul class="list-unstyled">
-                <li class="address">1 university Avenue Berekuso</li>
-                <li class="phone"><a href="tel://23923929210">+233 549923288</a></li>
-                <li class="email">priscile.nzonbi@ashesi.edu.gh</li>
-              </ul>
-            </div>
-
-
-          </div>
-        </div>
-
-      </div>
-    </footer>
 </body>
 
 </html>
