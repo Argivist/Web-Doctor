@@ -39,7 +39,7 @@ CREATE TABLE `medicine_inventory` (
   foreign key(pharm_id) references pharmacy(pharm_id) ON DELETE CASCADE ON UPDATE CASCADE
 );
 
-
+DROP TABLE `prescription`;
 CREATE TABLE `prescription` (
   `prescript_id` int(11) PRIMARY KEY AUTO_INCREMENT,
   `custom_id` int(11),
