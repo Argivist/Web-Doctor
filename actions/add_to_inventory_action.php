@@ -4,7 +4,7 @@
     if (isset($_POST["addBtn"])) {
         $productID = $_POST['prodID'];
         $productName = $_POST['prodName'];
-        $productQuantity $_POST['quantity'];
+        $productQuantity = $_POST['quantity'];
         
         $store = "INSERT INTO Inventory() VALUES ('$productID','$productName','$productQuantity')";
     
