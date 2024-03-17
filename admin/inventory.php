@@ -20,6 +20,7 @@ session_start();
     <link rel="stylesheet" href="../css/owl.theme.default.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/aos.css">
+    <link rel="stylesheet" href="../css/popup.css">
     <style>
         /* Styles for the inventory table */
         table {
@@ -95,7 +96,7 @@ session_start();
             </div>
         </div>
 
-    
+
         <div class="container">
         <div class="site-blocks-table">
         <h2 style="text-align:center;">Inventory Management System</h2>
@@ -116,22 +117,30 @@ session_start();
                                 <input type="text" id="productId" name="prodID" placeholder="Product ID" hidden><br>
                                 <input type="text" id="productName" name="prodName" placeholder="Product Name"><br>
                                 <input type="number" id="quantity" name = "quantity" placeholder="Quantity"><br>
-                                <button class="btn" name="addBtn" onclick="saveItem()">Save</button>
+                                <button class="btn" onclick="saveItem()">Save</button>
                                 <button class="btn" onclick="cancelAddItem()">Cancel</button>
                             </div>
                 </tbody>
               </table>
             </div>
         </div>
-        
+    </div>
+    <div id="addItemModal" class="popup">
+        <div class="popup-item">
+            <input type="text" id="productName" name="prodName" placeholder="Product Name"><br>
+            <input type="number" id="quantity" name="quantity" placeholder="Quantity"><br>
+            <button class="btn" onclick="saveItem()">Save</button>
+            <button class="btn" onclick="cancelAddItem()">Cancel</button>
+                    </div>
+        </div>
 </body>
 
 <script>
     // Sample inventory data
-    let inventory = <?php 
-        include '../functions/inventory_list.php';
-        invList();
-        ?>;
+    let inventory = <?php
+                    include '../functions/inventory_list.php';
+                    invList();
+                    ?>;
     // Function to render inventory table
     function renderInventory() {
         const tbody = document.getElementById("inventoryBody");
@@ -141,7 +150,7 @@ session_start();
             tr.innerHTML = `
             <td>${item.id}</td>
             <td>${item.name}</td>
-            <td>${item.quantity}</td>
+            <td>${item.quantity}</td> 
             <td><button class="btn" name="mid" value="${item.mid}"onclick="removeItem(${item.id})">Remove</button></td>
         `;
             tbody.appendChild(tr);
@@ -155,12 +164,12 @@ session_start();
 
     // Function to save the new item
     function saveItem() {
-        const productId = document.getElementById("productId").value;
+        // const productId = document.getElementById("productId").value;
         const productName = document.getElementById("productName").value;
         const quantity = parseInt(document.getElementById("quantity").value);
-        if (productId && productName && quantity) {
+        if ( productName && quantity) {
             inventory.push({
-                id: productId,
+                id: 0,
                 name: productName,
                 quantity: quantity
             });
@@ -169,6 +178,7 @@ session_start();
         } else {
             alert("Please fill all fields.");
         }
+
     }
 
     // Function to cancel adding a new item
