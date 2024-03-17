@@ -68,6 +68,17 @@
 
             </div>
 </body>
+<script>
+    var password = document.getElementById('pwd').value;
+    var regex = /^(?=.*[0-9])(?=.*[!@#$%^&*()-_=+{};:',.<>?])(?=.*[a-zA-Z]).{15,}$/;
+    var btn=document.getElementById('Reg');
+    btn.addEventListener((event),()=>{
+        if (!regex.test(password)) {
+        event.preventDefault();
+        window.
+    }
+    });
 
+</script>
 
 </html>

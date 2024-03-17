@@ -18,9 +18,10 @@ $password=password_hash($pass,PASSWORD_DEFAULT);
 if ( empty($fname) || empty($lname) || empty($email) || empty($phone) || empty($address) || empty($pass) || empty($rpass)) {
     header("Location: ../login/register.php?error=Empty fields");
     exit();
-} else if (!preg_match($pattern, $pass)) {
+} else if (preg_match($pattern, $pass)) {
     header("Location: ../login/register.php?error=Password should be at least 15 characters long and contain at least one symbol and one number");
     exit();
+
 }else if ($pass !== $rpass) {
     header("Location: ../login/register.php?error=Password mismatch");
     exit();
@@ -41,7 +42,7 @@ if ( empty($fname) || empty($lname) || empty($email) || empty($phone) || empty($
         $stmt->bind_param("isssiss",$user_id, $fname, $lname, $email, $phone, $address, $password);
         $stmt->execute();
 if($stmt->affected_rows>0){
-    header("Location: ../login/login.php?sucess=Registration successful");
+    header("Location: ../login/login.php?error=Registration successful");
 }else{
     header("Location: ../login/register.php?error=Registration failed");
 }

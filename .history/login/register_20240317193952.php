@@ -17,15 +17,15 @@
 </head>
 
 <body style="background-image: url('../img/background/pharmacy_1.jpg');">
-    <div class="site-wrap justify-content-center">
+    <div class="site-wrap justify-content-center" >
 
-        <div class="site-blocks-cover">
+        <div class="site-blocks-cover" >
             <div class="container">
                 <div class="row">
                     <div class="col-lg-7 mx-auto order-lg-2 align-self-center">
                         <div class="site-block-cover-content text-center" style="backdrop-filter:blur(20px); background:rgba(22,230,240,0.5); padding:20px; border-radius:10px;">
                             <h2 class="sub-title"><?php if (isset($_GET['error'])) {
-                                                        echo "<div class='alert alert-danger' role='alert'>" . $_GET['error'] . "</div>";
+                                                        echo "<div class='alert alert-danger' role='alert'>". $_GET['error']."</div>";
                                                     } else {
                                                         echo "Convinience Prescription Delivery, Secure Medication Purchases and others";
                                                     } ?></h2>
@@ -51,16 +51,17 @@
                                     <input type="text" class="form-control" id="address" placeholder="Enter address" name="address" required>
                                 </div>
                                 <div class="mb-3">
-                                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="passwd" pattern="(?=.*[0-9])(?=.*[!@#$%^&*()-_=+{};:',.<>?])(?=.*[a-zA-Z]).{15,}$" title="Please enter a password that is at least 15 characters long and contains at least one symbol and one number" required>
+                                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="passwd" pattern="^(?=.*[0-9])(?=.*[!@#$%^&*()-_=+{};:',.<>?])(?=.*[a-zA-Z]).{15,}$
+" title="Please enter a password that is at least 15 characters long and contains at least one symbol and one number" required>
                                 </div>
                                 <div class="mb-3">
                                     <input type="password" class="form-control" id="pwd" placeholder="Re-enter password" name="rpasswd" title="Passwords should match" required>
                                 </div>
                                 <div class="mb-3" style="margin-bottom:30px;">
-                                    <button type="submit" id="Reg" class="btn btn-primary">Register</button>
+                                    <button type="submit" class="btn btn-primary">Register</button>
                                     <p>Already have an account?<a href="login.php">Login</a></p>
                                 </div>
-
+                                
                             </form>
                         </div>
                     </div>
@@ -68,6 +69,5 @@
 
             </div>
 </body>
-
 
 </html>

@@ -41,7 +41,7 @@
                                     <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="passwd" required>
                                 </div>
                                 <div class="mb-3" style="margin-bottom:30px;">
-                                    <button type="submit" class="btn btn-primary">Log In</button>
+                                    <button type="submit" class="btn btn-primary">Submit</button>
                                 </div>
                                 <p>Don't have an account? <a href="register.php">Register</a></p>
                             </form>

@@ -51,7 +51,7 @@
                                     <input type="text" class="form-control" id="address" placeholder="Enter address" name="address" required>
                                 </div>
                                 <div class="mb-3">
-                                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="passwd" pattern="(?=.*[0-9])(?=.*[!@#$%^&*()-_=+{};:',.<>?])(?=.*[a-zA-Z]).{15,}$" title="Please enter a password that is at least 15 characters long and contains at least one symbol and one number" required>
+                                    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="passwd" pattern="^(?=.*[0-9])(?=.*[!@#$%^&*()-_=+{};:',.<>?])(?=.*[a-zA-Z]).{15,}$" title="Please enter a password that is at least 15 characters long and contains at least one symbol and one number" required>
                                 </div>
                                 <div class="mb-3">
                                     <input type="password" class="form-control" id="pwd" placeholder="Re-enter password" name="rpasswd" title="Passwords should match" required>
@@ -68,6 +68,16 @@
 
             </div>
 </body>
+<script>
+    var password = document.getElementById('pwd').value;
+    var regex = /^(?=.*[0-9])(?=.*[!@#$%^&*()-_=+{};:',.<>?])(?=.*[a-zA-Z]).{15,}$/;
+    var btn=document.getElementById('Reg');
+    btn.addEventListener((event),()=>{
+        if (!regex.test(password)) {
+        event.preventDefault();
+    }
+    });
 
+</script>
 
 </html>

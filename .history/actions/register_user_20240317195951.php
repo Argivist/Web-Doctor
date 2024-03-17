@@ -18,9 +18,10 @@ $password=password_hash($pass,PASSWORD_DEFAULT);
 if ( empty($fname) || empty($lname) || empty($email) || empty($phone) || empty($address) || empty($pass) || empty($rpass)) {
     header("Location: ../login/register.php?error=Empty fields");
     exit();
-} else if (!preg_match($pattern, $pass)) {
+} else if (preg_match($pattern, $pass)) {
     header("Location: ../login/register.php?error=Password should be at least 15 characters long and contain at least one symbol and one number");
     exit();
+
 }else if ($pass !== $rpass) {
     header("Location: ../login/register.php?error=Password mismatch");
     exit();
